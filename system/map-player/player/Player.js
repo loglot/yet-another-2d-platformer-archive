@@ -209,7 +209,7 @@ export class Player {
         if (this.jump == 5) {
             this.velX = this.velX * .8
         }  else {
-            this.velX = this.velX * .9
+            this.velX = this.velX * .85
         }
 
         if (this.game.hook.enabled) {
