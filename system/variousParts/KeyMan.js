@@ -46,34 +46,12 @@ export class KeyManager {
       document.addEventListener('contextmenu', event => {
         event.preventDefault();
       }, false);    
-        
+
       document.addEventListener("mouseup", (event) => {
-        if (event.button == 0 && !this.isKeyPressed("ShiftLeft") && this.game.player.hookHeld) {
-          if(this.game.hook.visibility){
-            this.game.hook.visibility = false
-            this.game.hook.enabled = false
-            this.game.hook.motion = true
-            this.game.hook.mouseUpdate()
-            if (this.game.hook.visibility) {
-              this.game.audio.hookSound()
-            } else {
-              this.game.audio.breakSound()
-            }
-          }
+        if (event.button == 0) {
+          this.game.held.unExecute()
         }
-        
-        if (event.button == 2 && !this.isKeyPressed("ShiftLeft") && this.game.player.hookHeldII) {
-          if(this.game.hookII.visibility){
-            this.game.hookII.visibility = false
-            this.game.hookII.enabled = false
-            this.game.hookII.motion = true
-            if (this.game.hookII.visibility) {
-              this.game.audio.hookSound()
-            } else {
-              this.game.audio.breakSound()
-            }
-          }
-        }
+
       })
       document.addEventListener("mousemove", (event) => {
         var rect = canvas.getBoundingClientRect()

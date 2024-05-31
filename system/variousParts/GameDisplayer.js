@@ -125,6 +125,8 @@ export class GameDisplayer {
 
         this.signDraw()
 
+        ctx.drawImage(this.game.held.image,-this.player.x + this.camera.x - 50,-this.player.y + this.camera.y-200, 100, 100)
+
     }
 
     signDraw() {

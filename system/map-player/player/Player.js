@@ -81,6 +81,14 @@ export class Player {
         if (this.keyManager.wasKeyJustPressed("KeyR") && (!this.keyManager.isKeyPressed("ShiftLeft") && !this.keyManager.isKeyPressed("AltLeft"))){
             this.die()
         }
+        if(this.game.keyManager.wasKeyJustPressed("KeyE")){
+            this.game.held.up()
+        }
+        if(this.game.keyManager.wasKeyJustPressed("KeyQ")){
+            this.game.held.down()
+        }
+        
+        
         this.hidden = this.death
         //console.log(this.velY)
         this.orbAlpha -= .001

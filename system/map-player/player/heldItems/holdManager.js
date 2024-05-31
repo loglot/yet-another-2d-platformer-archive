@@ -2,33 +2,35 @@ export class Held {
     game
     heldItems = [false,false,false]
     selected = -1
+    image = new Image()
+    imageX = 0
+    imageY = 0
     constructor(game){
         this.game = game
     }
 
     up(){
-        //if(this.game.keyManager.wasKeyJustPressed("KeyE")){}
+        
         this.check()
         this.selected++
-        i=0
-        while(!this.heldItems[this.selected] || i > 2){
+        var i=0
+        while(!this.heldItems[this.selected] && i < 3){
             this.selected++
             i++
-            if(this.selected < 2){
+            if(this.selected > 2){
                 this.selected = 0
             }
         }
         if(!this.heldItems[this.selected]){
             this.cancel()
-        }
+        } else {this.makeImg()}
     }
 
     down(){
-        //if(this.game.keyManager.wasKeyJustPressed("KeyQ")){}
         this.check()
         this.selected--
-        i=0
-        while(!this.heldItems[this.selected] || i > 2){
+        var i=0
+        while(!this.heldItems[this.selected] && i < 3){
             this.selected--
             i++
             if(this.selected < 0){
@@ -37,12 +39,22 @@ export class Held {
         }
         if(!this.heldItems[this.selected]){
             this.cancel()
-        }
+        } else {this.makeImg()}
 
     }
 
     cancel(){
         this.selected = -1
+    }
+
+    makeImg(){
+        if(this.selected == 0){
+            this.image = this.game.keys.hookEnabled
+        }else if(this.selected==1){
+            this.image = this.game.keys.pickaxeEnabled
+        }else if(this.selected==2){
+
+        }
     }
 
     check(){
@@ -62,6 +74,11 @@ export class Held {
         }else if(this.selected == 2){
             this.bazooka()
         }
+    }
+
+    unExecute(){
+        this.hookUp()
+        this.pickaxeUp()
     }
 
     hook(){
@@ -90,6 +107,33 @@ export class Held {
     
     bazooka(){
 
+    }
+
+    hookUp(){
+        if(this.game.hook.visibility){
+            this.game.hook.visibility = false
+            this.game.hook.enabled = false
+            this.game.hook.motion = true
+            this.game.hook.mouseUpdate()
+            if (this.game.hook.visibility) {
+              this.game.audio.hookSound()
+            } else {
+              this.game.audio.breakSound()
+            }
+          }
+    }
+
+    pickaxeUp(){
+        if(this.game.hookII.visibility){
+            this.game.hookII.visibility = false
+            this.game.hookII.enabled = false
+            this.game.hookII.motion = true
+            if (this.game.hookII.visibility) {
+              this.game.audio.hookSound()
+            } else {
+              this.game.audio.breakSound()
+            }
+          }
     }
 
 
