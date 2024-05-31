@@ -648,22 +648,7 @@ export class Background {
     
 
     createlayer0() {
-        this.layer0[0] = new Hitbox(3006,-3604,145,815 )
-        this.layer0[1] = new Hitbox(2205,-3594,147,786 )
-        this.layer0[2] = new Hitbox(666,-2853,115,165 )
-        this.layer0[3] = new Hitbox(-20089,-3238,2028,870 )
-
-        this.layer0[this.layer0.length] = new Hitbox(647,6402,1831,373 )
-        this.layer0[this.layer0.length] = new Hitbox(1690,6257,466,3483 )
-        this.layer0[this.layer0.length] = new Hitbox(578,6444,586,3319 )
-        this.layer0[this.layer0.length] = new Hitbox(963,7109,818,702 )
-        this.layer0[this.layer0.length] = new Hitbox(995,8306,807,398 )
-        this.layer0[this.layer0.length] = new Hitbox(912,9205,891,540 )
-        this.layer0[this.layer0.length] = new Hitbox(2103,5969,3574,4038 )
-        this.layer0[this.layer0.length] = new Hitbox(5556,6976,3136,3030 )
- 
         
- 
     }
 
     createLayer3() {

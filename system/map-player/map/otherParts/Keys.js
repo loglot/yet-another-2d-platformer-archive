@@ -1,6 +1,13 @@
 const canvas = document.getElementById("game_screen");
 const ctx = canvas.getContext("2d");
 
+        //this.hookState(11302 + this.camera.x, -2227 + this.camera.y)
+        //this.pickaxeState(4424 + this.camera.x,9345 + this.camera.y)
+        //this.hookTip(5743,9072, "right")
+        //this.jump(7533,-389)
+
+
+
 export class Keys {
     camera;
     keyD = new Image();
@@ -42,22 +49,9 @@ export class Keys {
         if(this.game.debug.shortsMap) {} else {
             this.drawMisc()
             this.hookTip(5347,-621, "left")
-            this.hookTip(13821,-2632, "left")
-            
             this.jump(2273, 642)
-            this.jump(5419, 644)
-
-            this.jump(8150,188)
-            this.jump(7533,-389)
-
-            //this.hookTip(4358,7562, "left")
-            this.hookTip(5291,7562, "right")
-            
         }
-
-    } // 8779, 269
-   // this.hitboxes[this.hitboxes.length] = new Hitbox(4358,7562,31,6 )
- //   this.hitboxes[this.hitboxes.length] = new Hitbox(5291,7561,15,6 )
+    }
     
  
 
@@ -95,38 +89,17 @@ export class Keys {
 
     drawMisc(){
         this.drawImage(this.keyD, 388, 600)
-        this.drawImage(this.keyS, 17620, -3280)
-        this.drawImage(this.keyW, 17620, -3380)
         this.drawImage(this.warnLava, 5976, -1211)
         this.drawImage(this.warnLava, 5976, -811)
         this.drawImage(this.warnLava, 5976, -1611)
-        this.hookState(11302 + this.camera.x, -2227 + this.camera.y)
-        this.pickaxeState(4424 + this.camera.x,9345 + this.camera.y)
-        this.hookTip(5743,9072, "right")
-       // ctx.drawImage(this.hookEnabled, 8779 + this.camera.x, 269 + this.camera.y)
-       // this.hitboxes[this.hitboxes.length] = new Hitbox(4374,9345,138,28 )
-       // this.hitboxes[this.hitboxes.length] = new Hitbox(5713,9072,76,20 )
- 
     }
 
     drawImage(img, x, y, width, height) {
         if(!width){
             ctx.drawImage(img, x +this.camera.x, y + this.camera.y)
-
         } else (
             ctx.drawImage(img, x +this.camera.x, y + this.camera.y, width, height)
         )
     }
     
 }
-
-/*
-
-
-
-
-
-
-
-
- */
