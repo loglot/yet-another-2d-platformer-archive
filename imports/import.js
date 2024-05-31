@@ -10,14 +10,12 @@ import { Menu } from "../system/variousParts/menu/Menu.js"
 import { Keys } from "../system/map-player/map/otherParts/Keys.js"
 import { DrawUtils } from "../utils/DrawUtils.js"
 import { Background } from "../system/map-player/map/mapCarryers/Background.js"
-
-import { Hook } from "../system/map-player/player/hookI.js"
-import { Hook as HookII } from "../system/map-player/player/hookII.js"
-
+import { Hook } from "../system/map-player/player/heldItems/hookI.js"
+import { Hook as HookII } from "../system/map-player/player/heldItems/hookII.js"
 import { Storage } from "../storage/storage.js"
-import { Sound as Audio } from "../system/map-player/map/otherParts/audio.js" //Checkpoint
+import { Sound as Audio } from "../system/map-player/map/otherParts/audio.js"
 import { Spawn } from "../system/map-player/map/mapCarryers/enemySpawn.js"
-
+import { Held } from "../system/map-player/player/heldItems/holdManager.js"
 
 export class Game{
     // System
@@ -39,6 +37,7 @@ export class Game{
     keys = new Keys(this.camera, this)
     Background = new Background(this.camera)
     audio = new Audio(this)
+    held = new Held(this)
     main 
     enemy
     

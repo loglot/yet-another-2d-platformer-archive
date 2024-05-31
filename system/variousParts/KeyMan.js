@@ -38,45 +38,15 @@ export class KeyManager {
       }, false);
 
       document.addEventListener("mousedown", (event) => {
-        /*var rect = canvas.getBoundingClientRect()
-        this.mousePos = this.getMousePos(canvas, event);
-        this.mousePos.x = (((this.mousePos.x) / (rect.width)) * this.canvasShape.width) - this.camX
-        this.mousePos.y = (((this.mousePos.y) / (rect.height)) * this.canvasShape.height) - this.camY
-        this.mousePos.cx = this.camX
-        this.mousePos.cy = this.camY*/
-        if (event.button == 0 && !this.isKeyPressed("ShiftLeft") && this.game.player.hookHeld && !this.game.hookII.visibility) {
-          this.game.hook.visibility = true
-          this.game.hook.enabled = false
-          this.game.hook.motion = true
-          this.game.hook.mouseUpdate()
-          if (this.game.hook.visibility) {
-            this.game.audio.hookSound()
-          } else {
-            this.game.audio.breakSound()
-          }
+        if (event.button == 0) {
+          this.game.held.execute()
         }
-        if (event.button == 2 && !this.isKeyPressed("ShiftLeft") && this.game.player.hookHeldII && !this.game.hook.visibility) {
-          this.game.hookII.visibility = true
-          this.game.hookII.enabled = false
-          this.game.hookII.motion = true
-          this.game.hookII.setup()
-          if (this.game.hookII.visibility) {
-            this.game.audio.hookSound()
-          } else {
-            this.game.audio.breakSound()
-          }
-        }
-
-        /*
-        this.mouseX = (((event.clientX / 1.0) - this.canvasShape.left))
-        this.mouseY = (((event.clientY / 1.0) - this.canvasShape.top))
-        /*
-        this.x = event.clientX;
-        this.y = event.clientY;/**/
       }, false);
+
       document.addEventListener('contextmenu', event => {
         event.preventDefault();
-      }, false);      
+      }, false);    
+        
       document.addEventListener("mouseup", (event) => {
         if (event.button == 0 && !this.isKeyPressed("ShiftLeft") && this.game.player.hookHeld) {
           if(this.game.hook.visibility){
