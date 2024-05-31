@@ -13,23 +13,7 @@ export class Checkpoint {
     
     #createHitboxes() {
         this.hitboxes[this.hitboxes.length] = new Hitbox(5246,395,393,438 )
-        this.hitboxes[this.hitboxes.length] = new Hitbox(9850,-718,612,138 )
-        this.hitboxes[this.hitboxes.length] = new Hitbox(14023,-2172,600,166 )
-        this.hitboxes[this.hitboxes.length] = new Hitbox(16704,-5017,96,622 )
-        this.hitboxes[this.hitboxes.length] = new Hitbox(11223,-2390,274,17 )
-        this.hitboxes[this.hitboxes.length] = new Hitbox(3025,-3239,89,323 )
-        this.hitboxes[this.hitboxes.length] = new Hitbox(688,-2574 - 300,59,202 )
-        this.hitboxes[this.hitboxes.length] = new Hitbox(-3533,-5767,46,749 )
-        this.hitboxes[this.hitboxes.length] = new Hitbox(-10340,-6208,46,573 )
-        this.hitboxes[this.hitboxes.length] = new Hitbox(-14153,-6187,332,576 ) // 10
-        this.hitboxes[this.hitboxes.length] = new Hitbox(1287,7149,284,51 )
-        this.hitboxes[this.hitboxes.length] = new Hitbox(4362,9222,253,33 )
-        this.hitboxes[this.hitboxes.length] = new Hitbox(7613,8817,69,25 )
-        this.hitboxes[this.hitboxes.length] = new Hitbox(6934,7157,90,33 )
-        this.hitboxes[this.hitboxes.length] = new Hitbox(8493,3457,279,87 )
-        this.hitboxes[this.hitboxes.length] = new Hitbox(4214,-7017,157,64 )
-        this.hitboxes[this.hitboxes.length] = new Hitbox(11027,1071,109,83 )
-        this.hitboxes[this.hitboxes.length] = new Hitbox(13105,323,145,63 )
+ 
         
  
  
