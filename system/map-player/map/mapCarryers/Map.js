@@ -27,6 +27,14 @@ export class Map {
         this.hitboxes[7] = new Hitbox(5169,-1733,1066,1321 )
 
         
+
+
+        this.hitboxes[this.hitboxes.length] = new Hitbox(5512,1868,1388,163 )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(6038,1720,126,165 )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(6528,1722,133,161 )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(6789,1869,611,156 )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(6945,1727,133,211 )
+        
     }
 
     stairs(x, y, width, height, step, stepH){
