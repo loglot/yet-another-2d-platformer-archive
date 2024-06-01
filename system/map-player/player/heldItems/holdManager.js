@@ -110,7 +110,7 @@ export class Held {
     }
     
     bazooka(){
-
+        this.game.bazooka.summon()
     }
 
     hookUp(){

@@ -293,10 +293,16 @@ export class GameDisplayer {
 
         if (this.game.bazooka.visibility) {
             this.drawUtils.Circle(
-                this.game.bazooka.x,
-                this.game.bazooka.y,
-                20,
+                this.game.bazooka.x +this.camera.x,
+                this.game.bazooka.y+this.camera.y,
+                30,
                 "rgb(50,50,50)"
+            )
+            this.drawUtils.Circle(
+                this.game.bazooka.x +this.camera.x,
+                this.game.bazooka.y+this.camera.y,
+                25,
+                "rgb(255,155,50)"
             )
         }
     }
