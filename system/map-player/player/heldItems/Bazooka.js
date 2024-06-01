@@ -36,6 +36,21 @@ export class Bazooka{
         this.x += this.velX * this.speed
         this.y += this.velY * this.speed
         this.velY += .05
+        this.colideAll(this.game.map.ground)
+    }
+
+    colideAll(type){
+        for(let i = 0; i < type.hitboxes.length; i++){
+            this.colide(type, i)
+        }
+    }
+
+    colide(type, i){
+        if(   this.x > type.hitboxes[i].x && this.x < type.hitboxes[i].x + type.hitboxes[i].width    &&
+              this.y > type.hitboxes[i].y && this.y < type.hitboxes[i].y + type.hitboxes[i].height   ){
+
+            this.visibility = false
+        }
     }
 
 }
