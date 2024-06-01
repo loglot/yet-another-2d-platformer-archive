@@ -308,6 +308,14 @@ export class GameDisplayer {
                 "rgb(255,155,50)"
             )
         }
+        ctx.globalAlpha = Math.min(1, Math.max(0,this.game.bazooka.explodeA))
+        this.drawUtils.Circle(
+            this.game.bazooka.explodeX +this.camera.x,
+            this.game.bazooka.explodeY+this.camera.y,
+            this.game.bazooka.explodeR,
+            "rgb(255,155,50)"
+        )
+        ctx.globalAlpha = 1
     }
 
     enum() {

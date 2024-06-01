@@ -9,9 +9,11 @@ export class Bazooka{
     enabled = false
     visibility = false
     speed = 50
-    explodestate = false
+    explodeState = false
     explodeR = 0
     explodeA = 0
+    explodeX = 0
+    explodeY = 0
     threshold = 0
     trajectory = new Object()
     playerTraj = new Object()
@@ -50,6 +52,10 @@ export class Bazooka{
             this.game.audio.bazookaReloadSound()
             console.log("reload")
         }
+        if(this.explodeState == true){
+            this.explodeR += 30
+            this.explodeA -= .05
+        }
     }
 
     colideAll(type){
@@ -81,6 +87,12 @@ export class Bazooka{
         this.game.player.velY += this.playerTraj.y * closeness
         
         this.game.audio.bazookaHitSound()
+
+        this.explodeState = true
+        this.explodeX = this.x
+        this.explodeY = this.y
+        this.explodeA = 1
+        this.explodeR = 0
 
     }
 
