@@ -37,7 +37,6 @@ export class Edit {
             
             //this.x = event.clientX;
             //this.y = event.clientY;
-            console.log(event.clientX,this.rect.left,this.camera.zoom,this.rect.width,this.canvasShape.width)
             this.x = ((((event.clientX - this.rect.left)/ this.camera.zoom )  / (this.rect.width ) * this.canvasShape.width ) - (this.camera.x / this.layerOffset)) 
             this.y = ((((event.clientY - this.rect.top) / (this.camera.zoom)) / (this.rect.height) * this.canvasShape.height) - (this.camera.y / this.layerOffset))
             //this.mousePos.x = (((this.mousePos.x) / (this.rect.width)) * this.canvasShape.width) - this.camX

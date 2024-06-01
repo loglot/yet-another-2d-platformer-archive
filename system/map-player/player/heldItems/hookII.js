@@ -31,7 +31,7 @@ export class Hook{
         
         if(this.motion) {
             this.move(this.trajectory.x, this.trajectory.y)
-            console.log(this.trajectory.x, this.trajectory.y)
+            //console.log(this.trajectory.x, this.trajectory.y)
             this.mouseUpdate()
         }
 

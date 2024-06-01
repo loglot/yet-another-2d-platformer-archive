@@ -26,6 +26,24 @@ export class Sound{
         hbreak.play()
     }
 
+    bazookaFireSound(v=.4) {
+        var hbreak = new Audio('https://raw.githubusercontent.com/loglot/yet-another-2d-platformer/main/assets/audio/bazookaFire.wav')
+        hbreak.volume = v
+        hbreak.play()
+    }
+
+    bazookaHitSound(v=.3) {
+        var hbreak = new Audio('https://raw.githubusercontent.com/loglot/yet-another-2d-platformer/main/assets/audio/bazookaHit.wav')
+        hbreak.volume = v
+        hbreak.play()
+    }
+
+    bazookaReloadSound(v=.3) {
+        var hbreak = new Audio('https://raw.githubusercontent.com/loglot/yet-another-2d-platformer/main/assets/audio/bazookaReload.wav')
+        hbreak.volume = v
+        hbreak.play()
+    }
+
     cycleSound(v=.1) {
         var hbreak = new Audio('https://raw.githubusercontent.com/loglot/yet-another-2d-platformer/main/assets/audio/cycle.wav')
         hbreak.volume = v
@@ -104,7 +122,6 @@ export class Sound{
     songMuteBrains(){
         if(this.game.debug.mute){
             this.song.volume = 0
-            console.log("the game is muted")
         } else{
             this.song.volume = .2
         }
