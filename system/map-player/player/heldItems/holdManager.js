@@ -5,6 +5,7 @@ export class Held {
     image = new Image()
     imageX = 0
     imageY = 0
+    imageA = 0
     constructor(game){
         this.game = game
     }
@@ -55,6 +56,7 @@ export class Held {
         }else if(this.selected==2){
             this.image = this.game.keys.warnLava
         }
+        this.imageA = 5
         this.game.audio.cycleSound(.3)
     }
 
