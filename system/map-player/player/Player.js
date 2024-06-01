@@ -26,7 +26,7 @@ export class Player {
     stuck = false; death = false; hidden = false;
     playerHitbox = new Array();
 
-    hookHeld = false; hookHeldII = false
+    hookHeld = false; hookHeldII = false; bazookaHeld = false
     change
     orb = new Array(); anim = false; animFrames = 0; orbAlpha = 1
     mousevis = false
@@ -119,6 +119,16 @@ export class Player {
             this.game.gameDisplayer.targetR = 216
             this.game.gameDisplayer.targetG = 199
             this.game.gameDisplayer.targetB = 167
+            this.game.gameDisplayer.gradMinTarget = 700
+            this.game.gameDisplayer.gradMaxTarget = 2000
+            this.anim = false
+        }
+
+        if(this.orbAlpha <= 0 && this.anim == true && this.bazookaHeld == false && this.change == "bazooka") {
+            this.bazookaHeld = true
+            this.game.gameDisplayer.targetR = 167
+            this.game.gameDisplayer.targetG = 216
+            this.game.gameDisplayer.targetB = 199
             this.game.gameDisplayer.gradMinTarget = 700
             this.game.gameDisplayer.gradMaxTarget = 2000
             this.anim = false
@@ -312,9 +322,22 @@ export class Player {
             if(this.anim == false && this.hookHeldII != true){
                 this.orbAlpha = 1
                 this.anim = true
-                await this.sleep(1500)
+                await this.sleep(750)
                 this.game.audio.powerUpSound()
+                await this.sleep(750)
                 this.change = "hookII"
+                this.mousevis = true
+                document.getElementsByTagName("body")[0].style.cursor = "url('http://wiki-devel.sugarlabs.org/images/e/e2/Arrow.cur'), auto";
+            }
+        }
+        if(valC == "bazooka") {
+            if(this.anim == false && this.bazookaHeld != true){
+                this.orbAlpha = 1
+                this.anim = true
+                await this.sleep(750)
+                this.game.audio.powerUpSound()
+                await this.sleep(750)
+                this.change = "bazooka"
                 this.mousevis = true
                 document.getElementsByTagName("body")[0].style.cursor = "url('http://wiki-devel.sugarlabs.org/images/e/e2/Arrow.cur'), auto";
             }

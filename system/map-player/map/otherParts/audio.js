@@ -27,7 +27,7 @@ export class Sound{
     }
 
     cycleSound(v=.1) {
-        var hbreak = new Audio('https://raw.githubusercontent.com/loglot/yet-another-2d-platformer/main/assets/audio/break.wav')
+        var hbreak = new Audio('https://raw.githubusercontent.com/loglot/yet-another-2d-platformer/main/assets/audio/cycle.wav')
         hbreak.volume = v
         hbreak.play()
     }

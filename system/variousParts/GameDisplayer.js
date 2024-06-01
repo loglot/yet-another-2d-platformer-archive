@@ -290,6 +290,15 @@ export class GameDisplayer {
                 30 + -this.game.hookII.length/70, 
                 true, "#A06000" )
         }
+
+        if (this.game.bazooka.visibility) {
+            this.drawUtils.Circle(
+                this.game.bazooka.x,
+                this.game.bazooka.y,
+                20,
+                "rgb(50,50,50)"
+            )
+        }
     }
 
     enum() {

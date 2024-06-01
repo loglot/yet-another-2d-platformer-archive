@@ -53,8 +53,9 @@ export class Held {
         }else if(this.selected==1){
             this.image = this.game.keys.pickaxeEnabled
         }else if(this.selected==2){
-
+            this.image = this.game.keys.warnLava
         }
+        this.game.audio.cycleSound(.3)
     }
 
     check(){
@@ -63,6 +64,9 @@ export class Held {
         }
         if(this.game.player.hookHeldII){
             this.heldItems[1] = true
+        }
+        if(this.game.player.bazookaHeld){
+            this.heldItems[2] = true
         }
     }
 

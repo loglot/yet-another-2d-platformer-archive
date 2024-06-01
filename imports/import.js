@@ -16,6 +16,7 @@ import { Storage } from "../storage/storage.js"
 import { Sound as Audio } from "../system/map-player/map/otherParts/audio.js"
 import { Spawn } from "../system/map-player/map/mapCarryers/enemySpawn.js"
 import { Held } from "../system/map-player/player/heldItems/holdManager.js"
+import { Bazooka } from "../system/map-player/player/heldItems/bazooka.js"
 
 export class Game{
     // System
@@ -38,6 +39,7 @@ export class Game{
     Background = new Background(this.camera)
     audio = new Audio(this)
     held = new Held(this)
+    bazooka = new Bazooka(this)
     main 
     enemy
     
