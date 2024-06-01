@@ -127,7 +127,7 @@ export class GameDisplayer {
 
         var alpha = Math.min(1, Math.max(0, this.game.held.imageA))
         ctx.globalAlpha = alpha;
-        this.game.held.imageA -= .1
+        this.game.held.imageA -= .01
         ctx.drawImage(this.game.held.image,-this.player.x + this.camera.x - 50,-this.player.y + this.camera.y-200, 100, 100)
         ctx.globalAlpha = 1
     }
