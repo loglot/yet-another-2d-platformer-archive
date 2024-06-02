@@ -81,12 +81,16 @@ export class Bazooka{
         this.playerTraj.y = diffY / distance;
         this.playerTraj.x = diffX / distance;
 
-        const closeness = (Math.max(1000 / (Math.max(distance, 150)/5)) * 2) < 9 ? 0 : (Math.max(1000 / (Math.max(distance, 150)/5)) * 2)
+        const closeness = (Math.max(1000 / (Math.max(distance, 150)/5)) * 2) < 9 ? 0 : (Math.max(1000 / (Math.max(distance, 150)/5)) * 2, 30)
 
         this.game.player.velX += this.playerTraj.x * closeness * 2
+        if(closeness > 20){
+            this.game.player.velY = this.playerTraj.y * closeness
+        }
         this.game.player.velY += this.playerTraj.y * closeness
         
         this.game.audio.bazookaHitSound()
+        console.log(closeness)
 
         this.explodeState = true
         this.explodeX = this.x
