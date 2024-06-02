@@ -50,6 +50,11 @@ export class Keys {
             this.drawMisc()
             this.hookTip(5347,-621, "left")
             this.jump(2273, 642)
+            this.jump(5377,645)
+            this.jump(8089,-522)
+            this.jump(8824,-14,83,78 )
+ 
+            
         }
     }
     

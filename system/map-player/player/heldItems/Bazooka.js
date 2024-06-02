@@ -73,7 +73,7 @@ export class Bazooka{
         }
     }
 
-    explode() {
+    async explode() {
         const diffX = (this.game.player.x) + (this.x);
         const diffY = (this.game.player.y) + (this.y); 
         const distance = (diffX ** 2 + diffY ** 2) ** 0.5;
@@ -97,6 +97,14 @@ export class Bazooka{
         this.explodeY = this.y
         this.explodeA = 1
         this.explodeR = 0
+
+        if(closeness > 15){
+            this.game.player.friction = .95; this.game.player.stopFriction = .92; this.game.player.airFriction = .97
+            this.game.player.velChange = 1
+            await this.game.sleep(500)    
+            this.game.player.friction = .8; this.game.player.stopFriction = .5; this.game.player.airFriction = .85;
+            this.game.player.velChange = 4
+        }
 
     }
 

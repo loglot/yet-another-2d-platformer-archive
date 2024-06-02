@@ -78,6 +78,7 @@ export class Held {
         }else if(this.selected == 1){
             this.pickaxe()
         }else if(this.selected == 2){
+            this.imageA = 0
             this.bazooka()
         }
     }
