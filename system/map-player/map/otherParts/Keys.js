@@ -23,6 +23,8 @@ export class Keys {
     hookEnabled = new Image();
     pickaxeDisabled = new Image();
     pickaxeEnabled = new Image();
+    bazookaDisabled = new Image();
+    bazookaEnabled = new Image();
     leftClick = new Image()
     rightClick = new Image()
 
@@ -40,6 +42,8 @@ export class Keys {
         this.redFlag.src = 'assets/images/redFlag.png';
         this.hookDisabled.src = 'assets/images/hookDisabled.png';
         this.hookEnabled.src = 'assets/images/hookEnabled.png';
+        this.bazookaDisabled.src = 'assets/images/bazookaDisabled.png';
+        this.bazookaEnabled.src = 'assets/images/bazookaEnabled.png';
         this.pickaxeDisabled.src = 'assets/images/pickaxeDisabled.png';
         this.pickaxeEnabled.src = 'assets/images/pickaxeEnabled.png';
         this.game = root

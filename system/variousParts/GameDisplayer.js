@@ -129,7 +129,25 @@ export class GameDisplayer {
         ctx.globalAlpha = alpha;
         this.game.held.imageA -= .01
         ctx.drawImage(this.game.held.image,-this.player.x + this.camera.x - 50,-this.player.y + this.camera.y-200, 100, 100)
+        
+
+        ctx.globalAlpha = Math.min(1, Math.max(0,this.game.bazooka.explodeA))
+        this.drawUtils.Circle(
+            this.game.bazooka.explodeX +this.camera.x,
+            this.game.bazooka.explodeY+this.camera.y,
+            this.game.bazooka.explodeR,
+            "rgb(255,155,50)"
+        )
         ctx.globalAlpha = 1
+        
+        uictx.globalAlpha = Math.min(1, Math.max(0,this.game.bazooka.cooldownA))
+
+        const width = this.game.bazooka.reload < 0 ? 100 : -this.game.bazooka.reload + 100
+
+        this.drawUtils.Rect(190, 40, 2134, 70, "rgb(0, 0, 0)", uictx)
+        this.drawUtils.Rect(200, 50, 21.14 * 100, 50, "rgb(45, 45, 45)", uictx)
+        this.drawUtils.Rect(200, 50, 21.14 * width, 50, "rgb(255, 255, 255)", uictx)
+        uictx.globalAlpha = 1
     }
 
     signDraw() {
@@ -308,14 +326,7 @@ export class GameDisplayer {
                 "rgb(255,155,50)"
             )
         }
-        ctx.globalAlpha = Math.min(1, Math.max(0,this.game.bazooka.explodeA))
-        this.drawUtils.Circle(
-            this.game.bazooka.explodeX +this.camera.x,
-            this.game.bazooka.explodeY+this.camera.y,
-            this.game.bazooka.explodeR,
-            "rgb(255,155,50)"
-        )
-        ctx.globalAlpha = 1
+
     }
 
     enum() {

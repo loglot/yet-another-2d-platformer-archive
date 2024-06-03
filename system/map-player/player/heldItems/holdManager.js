@@ -54,7 +54,7 @@ export class Held {
         }else if(this.selected==1){
             this.image = this.game.keys.pickaxeEnabled
         }else if(this.selected==2){
-            this.image = this.game.keys.warnLava
+            this.image = this.game.keys.bazookaEnabled
         }
         this.imageA = 5
         this.game.audio.cycleSound(.3)
@@ -78,7 +78,6 @@ export class Held {
         }else if(this.selected == 1){
             this.pickaxe()
         }else if(this.selected == 2){
-            this.imageA = 0
             this.bazooka()
         }
     }

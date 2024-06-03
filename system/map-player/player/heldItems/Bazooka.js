@@ -15,6 +15,7 @@ export class Bazooka{
     explodeX = 0
     explodeY = 0
     threshold = 0
+    cooldownA = 0
     trajectory = new Object()
     playerTraj = new Object()
     constructor(game){
@@ -39,6 +40,7 @@ export class Bazooka{
             this.velY = this.trajectory.y
 
             this.game.audio.bazookaFireSound()
+            this.cooldownA = 15
         }
     }
 
@@ -56,6 +58,7 @@ export class Bazooka{
             this.explodeR += 30
             this.explodeA -= .05
         }
+        this.cooldownA -= .1
     }
 
     colideAll(type){
