@@ -1,7 +1,7 @@
 export class Shotgun{
     game
     cooldown = 700
-    reload = 0
+    reload = -1
     charges = 3
     cooldownA = 0
     trajectory = new Object()
@@ -18,6 +18,7 @@ export class Shotgun{
             }
             this.charges--
             this.cooldownA = 1
+            this.reloading = true
 
             const diffX = (this.game.camera.keyMan.mousePos.x + this.game.camera.keyMan.mousePos.cx) + (this.game.player.x - this.game.camera.x);
             const diffY = (this.game.camera.keyMan.mousePos.y + this.game.camera.keyMan.mousePos.cy) + (this.game.player.y - this.game.camera.y); 
@@ -43,7 +44,10 @@ export class Shotgun{
         if(this.reload <= 0){
             this.charges = 3
             this.cooldownA -= .05
-            this.game.audio.bazookaReloadSound()
+            if(this.reloading){
+                this.game.audio.bazookaReloadSound()
+                this.reloading = false
+            }
         }
     }
 }
