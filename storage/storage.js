@@ -22,6 +22,7 @@ export class Storage{
             y : this.game.player.y,
             hook : this.game.player.hookHeld,
             hookII : this.game.player.hookHeldII,
+            bazooka : this.game.player.bazookaHeld,
             rC : this.game.gameDisplayer.targetR,
             gC : this.game.gameDisplayer.targetG,
             bC : this.game.gameDisplayer.targetB,
@@ -70,7 +71,8 @@ export class Storage{
             Math.floor(this.Data.rx)+ "\n"+
             Math.floor(this.Data.ry)+ "\n"+
             this.Data.targetMinRad+ "\n"+
-            this.Data.targetMaxRad+ "\n"
+            this.Data.targetMaxRad+ "\n"+
+            this.Data.bazooka+ "\n"
         )
         console.log("save") 
     }
@@ -87,6 +89,7 @@ export class Storage{
         this.game.player.y = Math.floor(Number(useData[1]))
         this.game.player.hookHeld = (useData[2] === "true\r" || useData[2] === "true")
         this.game.player.hookHeldII = (useData[3] === "true\r" || useData[3] === "true")
+        this.game.player.bazookaHeld = (useData[11] === "true\r" || useData[3] === "true")
         this.game.gameDisplayer.targetR = Number(useData[4])
         this.game.gameDisplayer.targetG = Number(useData[5])
         this.game.gameDisplayer.targetB = Number(useData[6])
