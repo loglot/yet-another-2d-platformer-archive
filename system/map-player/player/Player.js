@@ -112,6 +112,8 @@ export class Player {
             this.game.gameDisplayer.gradMinTarget = 300
             this.game.gameDisplayer.gradMaxTarget = 1500
             this.anim = false
+            this.game.held.selected = 0
+            this.game.held.makeImg()
         }
         
         if(this.orbAlpha <= 0 && this.anim == true && this.hookHeldII == false && this.change == "hookII") {
@@ -122,16 +124,20 @@ export class Player {
             this.game.gameDisplayer.gradMinTarget = 700
             this.game.gameDisplayer.gradMaxTarget = 2000
             this.anim = false
+            this.game.held.selected = 1
+            this.game.held.makeImg()
         }
 
         if(this.orbAlpha <= 0 && this.anim == true && this.bazookaHeld == false && this.change == "bazooka") {
             this.bazookaHeld = true
-            this.game.gameDisplayer.targetR = 167
+            this.game.gameDisplayer.targetR = 199
             this.game.gameDisplayer.targetG = 216
-            this.game.gameDisplayer.targetB = 199
+            this.game.gameDisplayer.targetB = 167
             this.game.gameDisplayer.gradMinTarget = 700
             this.game.gameDisplayer.gradMaxTarget = 2000
             this.anim = false
+            this.game.held.selected = 2
+            this.game.held.makeImg()
         }
 
 

@@ -57,6 +57,10 @@ export class Keys {
             this.jump(5377,645)
             this.jump(8089,-522)
             this.jump(8824,-14,83,78 )
+
+            this.hookTip(14308,-2763, "left")
+            this.hookState(12162 + this.camera.x,-2256 + this.camera.y)
+            
  
             
         }
