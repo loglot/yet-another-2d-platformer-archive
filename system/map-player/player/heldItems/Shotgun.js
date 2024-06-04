@@ -43,7 +43,7 @@ export class Shotgun{
         if(this.reload <= 0){
             this.charges = 3
             this.cooldownA -= .05
-            this.game.audio.bazookaReload()
+            this.game.audio.bazookaReloadSound()
         }
     }
 }
