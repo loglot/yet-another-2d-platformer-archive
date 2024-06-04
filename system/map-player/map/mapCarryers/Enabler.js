@@ -23,8 +23,6 @@ export class Enabler {
         this.hitboxes[this.hitboxes.length] = new Hitbox(12093,-2354,282,44, true, "hook", true )
  
         
-        this.hitboxes[this.hitboxes.length] = new Hitbox(15440,-5526,115,57, true, "hookII", true)
-        this.hitboxes[this.hitboxes.length] = new Hitbox(15012,-5523,147,67, true, "bazooka", true)
         
         
  

@@ -84,7 +84,7 @@ export class GameDisplayer {
 
         if(!this.debug.backGrid) {
             ctx.fillStyle = `rgb(${this.r}, ${this.g}, ${this.b})`;
-            ctx.rect(0, 0, 100000, 10000) 
+            ctx.rect(0, 0, 100000, 100000) 
             ctx.fill()
             this.background.Draw()
         } else {
@@ -123,7 +123,10 @@ export class GameDisplayer {
 
         this.PostGrad()
 
-        this.signDraw()
+        if(this.signDisplayPos == 800){} else {
+
+            this.signDraw()
+        }
 
         var alpha = Math.min(1, Math.max(0, this.game.held.imageA))
         ctx.globalAlpha = alpha;
@@ -374,4 +377,8 @@ export class GameDisplayer {
     }
 
 }
+
+
+
+
 

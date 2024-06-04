@@ -105,6 +105,10 @@ export class Keys {
         this.drawImage(this.warnLava, 5976, -1211)
         this.drawImage(this.warnLava, 5976, -811)
         this.drawImage(this.warnLava, 5976, -1611)
+
+        
+        this.drawImage(this.keyW, 17395,-4977)
+        this.drawImage(this.keyS, 17395,-4877)
     }
 
     drawImage(img, x, y, width, height) {
@@ -116,3 +120,5 @@ export class Keys {
     }
     
 }
+
+
