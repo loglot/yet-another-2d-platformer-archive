@@ -26,7 +26,7 @@ export class Player {
     stuck = false; death = false; hidden = false;
     playerHitbox = new Array();
 
-    hookHeld = false; hookHeldII = false; bazookaHeld = false
+    hookHeld = false; hookHeldII = false; bazookaHeld = false; shotgunHeld = false
     change
     orb = new Array(); anim = false; animFrames = 0; orbAlpha = 1
     mousevis = false
@@ -137,6 +137,18 @@ export class Player {
             this.game.gameDisplayer.gradMaxTarget = 2000
             this.anim = false
             this.game.held.selected = 2
+            this.game.held.makeImg()
+        }
+
+        if(this.orbAlpha <= 0 && this.anim == true && this.shotgunHeld == false && this.change == "shotgun") {
+            this.shotgunHeld = true
+            this.game.gameDisplayer.targetR = 216
+            this.game.gameDisplayer.targetG = 199
+            this.game.gameDisplayer.targetB = 216
+            this.game.gameDisplayer.gradMinTarget = 700
+            this.game.gameDisplayer.gradMaxTarget = 2000
+            this.anim = false
+            this.game.held.selected = 3
             this.game.held.makeImg()
         }
 
@@ -348,6 +360,20 @@ export class Player {
                 document.getElementsByTagName("body")[0].style.cursor = "url('http://wiki-devel.sugarlabs.org/images/e/e2/Arrow.cur'), auto";
             }
         }
+        if(valC == "shotgun") {
+            if(this.anim == false && this.shotgunHeld != true){
+                this.orbAlpha = 1
+                this.anim = true
+                await this.sleep(750)
+                this.game.audio.powerUpSound()
+                await this.sleep(750)
+                this.change = "shotgun"
+                this.mousevis = true
+                document.getElementsByTagName("body")[0].style.cursor = "url('http://wiki-devel.sugarlabs.org/images/e/e2/Arrow.cur'), auto";
+            }
+        }
+
+        //shotgunHeld
     }
 
     drawHitbox() {

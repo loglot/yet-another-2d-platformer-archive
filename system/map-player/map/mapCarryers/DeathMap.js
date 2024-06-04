@@ -71,15 +71,10 @@ export class Death {
         this.hitboxes[this.hitboxes.length] = new Hitbox(8007,-8781,357,227 )
         
         this.hitboxes[this.hitboxes.length] = new Hitbox(7321,-9427,138,733 )
-        this.hitboxes[this.hitboxes.length] = new Hitbox(6966,-9727,96,296 )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(6966,-9727,96,296 ) // 50
         this.hitboxes[this.hitboxes.length] = new Hitbox(6652,-9524,410,94 )
-        this.hitboxes[this.hitboxes.length] = new Hitbox(5622,-10029,167,658 )
-        this.hitboxes[this.hitboxes.length] = new Hitbox(6082,-10173,421,89 )
-        this.hitboxes[this.hitboxes.length] = new Hitbox(5684,-10784,449,124 )
-        this.hitboxes[this.hitboxes.length] = new Hitbox(5970,-11569,497,438 )
-        
-        
-        this.hitboxes[this.hitboxes.length] = new Hitbox(17498,-2560,1142,254, true )
+
+        this.hitboxes[this.hitboxes.length] = new Hitbox(17428,-2002,1268,455, true)
  
     }
 

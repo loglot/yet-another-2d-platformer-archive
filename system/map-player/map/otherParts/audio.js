@@ -32,6 +32,12 @@ export class Sound{
         hbreak.play()
     }
 
+    shotgunFireSound(v=.4) {
+        var hbreak = new Audio('https://raw.githubusercontent.com/loglot/yet-another-2d-platformer/main/assets/audio/shotgunFire.wav')
+        hbreak.volume = v
+        hbreak.play()
+    }
+
     bazookaHitSound(v=.3) {
         var hbreak = new Audio('https://raw.githubusercontent.com/loglot/yet-another-2d-platformer/main/assets/audio/bazookaHit.wav')
         hbreak.volume = v

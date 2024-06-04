@@ -17,6 +17,7 @@ import { Sound as Audio } from "../system/map-player/map/otherParts/audio.js"
 import { Spawn } from "../system/map-player/map/mapCarryers/enemySpawn.js"
 import { Held } from "../system/map-player/player/heldItems/holdManager.js"
 import { Bazooka } from "../system/map-player/player/heldItems/Bazooka.js"
+import { Shotgun } from "../system/map-player/player/heldItems/Shotgun.js"
 
 export class Game{
     // System
@@ -26,7 +27,7 @@ export class Game{
 
     // fields
     
-    
+    shotgun = new Shotgun(this)
     keyManager = new KeyManager(this);
     debug = new Debug(this.keyManager, this);
     menu = new Menu(this)

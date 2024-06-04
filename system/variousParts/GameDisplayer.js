@@ -143,13 +143,33 @@ export class GameDisplayer {
         )
         ctx.globalAlpha = 1
         
+        
+        uictx.globalAlpha = Math.min(1, Math.max(0,this.game.shotgun.cooldownA))
+
+        width = this.game.shotgun.reload < 0 ? this.game.shotgun.cooldown : -this.game.shotgun.reload + this.game.shotgun.cooldown
+
+        this.drawUtils.Rect(190, 40, 2134, 70, "rgb(0, 0, 0)", uictx)
+        this.drawUtils.Rect(200, 50, 2114, 50, "rgb(45, 45, 45)", uictx)
+        this.drawUtils.Rect(200, 50, (2114 / this.game.shotgun.cooldown) * width, 50, "rgb(255, 255, 255)", uictx)
+        this.drawUtils.Circle(2514 / 2, 150, 40, "#000", uictx)
+        this.drawUtils.Circle((2514 / 2) - 70, 150, 40, "#000", uictx)
+        this.drawUtils.Circle((2514 / 2) + 70, 150, 40, "#000", uictx)
+        this.drawUtils.Circle((2514 / 2) - 70, 150, 30, "rgb(45, 45, 45)", uictx)
+        this.drawUtils.Circle((2514 / 2) + 0, 150, 30, "rgb(45, 45, 45)", uictx)
+        this.drawUtils.Circle((2514 / 2) + 70, 150, 30, "rgb(45, 45, 45)", uictx)
+        if(this.game.shotgun.charges > 0){this.drawUtils.Circle((2514 / 2) - 70, 150, 30, "#FFF", uictx)}
+        if(this.game.shotgun.charges > 1){this.drawUtils.Circle(2514 / 2, 150, 30, "#FFF", uictx)}
+        if(this.game.shotgun.charges > 2){this.drawUtils.Circle((2514 / 2) + 70, 150, 30, "#FFF", uictx)}
+
+        
         uictx.globalAlpha = Math.min(1, Math.max(0,this.game.bazooka.cooldownA))
 
-        const width = this.game.bazooka.reload < 0 ? 100 : -this.game.bazooka.reload + 100
+        var width = this.game.bazooka.reload < 0 ? 100 : -this.game.bazooka.reload + 100
 
         this.drawUtils.Rect(190, 40, 2134, 70, "rgb(0, 0, 0)", uictx)
         this.drawUtils.Rect(200, 50, 21.14 * 100, 50, "rgb(45, 45, 45)", uictx)
         this.drawUtils.Rect(200, 50, 21.14 * width, 50, "rgb(255, 255, 255)", uictx)
+
         uictx.globalAlpha = 1
     }
 
@@ -371,8 +391,6 @@ export class GameDisplayer {
                 this.drawUtils.Bean(-this.player.x + this.camera.x, -this.player.y + this.camera.y, 50 + (this.player.avgVelY/2), 100 - this.player.avgVelY, "#afbfaf") 
             }
         }
-
-
  
     }
 

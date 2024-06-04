@@ -1,6 +1,6 @@
 export class Held {
     game
-    heldItems = [false,false,false]
+    heldItems = []
     selected = -1
     image = new Image()
     imageX = 0
@@ -15,10 +15,10 @@ export class Held {
         this.check()
         this.selected++
         var i=0
-        while(!this.heldItems[this.selected] && i < 3){
+        while(!this.heldItems[this.selected] && i < 30){
             this.selected++
             i++
-            if(this.selected > 2){
+            if(this.selected > 3){
                 this.selected = 0
             }
         }
@@ -31,11 +31,11 @@ export class Held {
         this.check()
         this.selected--
         var i=0
-        while(!this.heldItems[this.selected] && i < 3){
+        while(!this.heldItems[this.selected] && i < 30){
             this.selected--
             i++
             if(this.selected < 0){
-                this.selected = 2
+                this.selected = 3
             }
         }
         if(!this.heldItems[this.selected]){
@@ -55,12 +55,18 @@ export class Held {
             this.image = this.game.keys.pickaxeEnabled
         }else if(this.selected==2){
             this.image = this.game.keys.bazookaEnabled
+        }else if(this.selected==3){
+            this.image = this.game.keys.warnLava
         }
         this.imageA = 5
         this.game.audio.cycleSound(.3)
     }
 
     check(){
+        this.heldItems[0] = false
+        this.heldItems[1] = false
+        this.heldItems[2] = false
+        this.heldItems[3] = false
         if(this.game.player.hookHeld){
             this.heldItems[0] = true
         }
@@ -69,6 +75,9 @@ export class Held {
         }
         if(this.game.player.bazookaHeld){
             this.heldItems[2] = true
+        }
+        if(this.game.player.shotgunHeld){
+            this.heldItems[3] = true
         }
     }
 
@@ -79,12 +88,18 @@ export class Held {
             this.pickaxe()
         }else if(this.selected == 2){
             this.bazooka()
+        }else if(this.selected == 3){
+            this.shotgun()
         }
     }
 
     unExecute(){
         this.hookUp()
         this.pickaxeUp()
+    }
+
+    shotgun(){
+        this.game.shotgun.execute()
     }
 
     hook(){
