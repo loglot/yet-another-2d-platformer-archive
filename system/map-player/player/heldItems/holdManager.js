@@ -56,7 +56,7 @@ export class Held {
         }else if(this.selected==2){
             this.image = this.game.keys.bazookaEnabled
         }else if(this.selected==3){
-            this.image = this.game.keys.warnLava
+            this.image = this.game.keys.shotgun
         }
         this.imageA = 5
         this.game.audio.cycleSound(.3)

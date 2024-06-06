@@ -32,7 +32,7 @@ export class Sound{
         hbreak.play()
     }
 
-    shotgunFireSound(v=.4) {
+    shotgunFireSound(v=.1) {
         var hbreak = new Audio('https://raw.githubusercontent.com/loglot/yet-another-2d-platformer/main/assets/audio/shotgunFire.wav')
         hbreak.volume = v
         hbreak.play()

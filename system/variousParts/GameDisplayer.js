@@ -92,16 +92,21 @@ export class GameDisplayer {
             ctx.drawImage(this.grid, 0, 0, this.originalWidth,625 * (this.originalWidth / 1000))
         }
 
-        //this.map.enabler.nDraw(this.camera)
+        for(let i = 0; i < this.game.shotgun.particles.length; i++) {
+            this.drawUtils.Circle(
+                -this.game.shotgun.particles[i].x + this.camera.x,
+                -this.game.shotgun.particles[i].y + this.camera.y,
+                5,
+                "rgb(0,0,0)"
+            )
+        }
+        
         this.map.teleport.nDraw(this.camera)
-
-
         
         for(let i = 0; i < this.map.sign.signs.length; i++) {
             this.map.sign.signs[i].nDraw(this.camera, this.drawUtils)
         }
         this.drawTheBeanPeople()
-
 
         this.map.door.nDraw(this.camera);
         this.map.lava.nDraw(this.camera);
@@ -111,15 +116,9 @@ export class GameDisplayer {
 
         this.debugDraw()
 
-        
         this.game.keys.drawKeys()
 
-        //if(this.player.anim) {
-        //bctx.filter = "blur(30px) contrast(100)"
-            this.orbDraw("old")
-        //}
-
-
+        this.orbDraw("old")
 
         this.PostGrad()
 
@@ -133,7 +132,6 @@ export class GameDisplayer {
         this.game.held.imageA -= .01
         ctx.drawImage(this.game.held.image,-this.player.x + this.camera.x - 50,-this.player.y + this.camera.y-200, 100, 100)
         
-
         ctx.globalAlpha = Math.min(1, Math.max(0,this.game.bazooka.explodeA))
         this.drawUtils.Circle(
             this.game.bazooka.explodeX +this.camera.x,
@@ -143,9 +141,7 @@ export class GameDisplayer {
         )
         ctx.globalAlpha = 1
         
-        
         uictx.globalAlpha = Math.min(1, Math.max(0,this.game.shotgun.cooldownA))
-
         width = this.game.shotgun.reload < 0 ? this.game.shotgun.cooldown : -this.game.shotgun.reload + this.game.shotgun.cooldown
 
         this.drawUtils.Rect(190, 40, 2134, 70, "rgb(0, 0, 0)", uictx)
@@ -163,7 +159,6 @@ export class GameDisplayer {
 
         
         uictx.globalAlpha = Math.min(1, Math.max(0,this.game.bazooka.cooldownA))
-
         var width = this.game.bazooka.reload < 0 ? 100 : -this.game.bazooka.reload + 100
 
         this.drawUtils.Rect(190, 40, 2134, 70, "rgb(0, 0, 0)", uictx)
@@ -265,34 +260,22 @@ export class GameDisplayer {
         canvas.height = desiredHeight;
         scaleX = (desiredWidth / this.originalWidth);
         scaleY = (desiredHeight / this.originalHeight);
-            //if(ctx == uictx){
-            //    ctx.setTransform(0.6109785202863961 * this.game.camera.zoom, 0, 0, 0.6109785202863961 * this.game.camera.zoom, 0, 0)
 
-            //} else{
-                ctx.setTransform(scaleY * this.game.camera.zoom, 0, 0, scaleX * this.game.camera.zoom, 0, 0)
+        ctx.setTransform(scaleY * this.game.camera.zoom, 0, 0, scaleX * this.game.camera.zoom, 0, 0)
 
-            //}
-        
-         currentWidth = canvas.width;
-         currentHeight = canvas.height;
+        currentWidth = canvas.width;
+        currentHeight = canvas.height;
         if (currentHeight >= windowHeight) {
-           desiredHeight = windowHeight;
-           aspectRatio = this.originalWidth / this.originalHeight;
-           desiredWidth = desiredHeight * aspectRatio;
-          canvas.width = desiredWidth;
-          this.width = desiredWidth
-          this.height = desiredHeight
-          canvas.height = desiredHeight;
-          scaleX = (desiredWidth / this.originalWidth);
-          scaleY = (desiredHeight / this.originalHeight);
-          //if(ctx == uictx){
-          //  ctx.setTransform(0.559785202863961, 0, 0, 0.5509785202863961, 0, 0)
-
-        //} else{
-            ctx.setTransform(scaleY * this.game.camera.zoom, 0, 0, scaleX * this.game.camera.zoom, 0, 0)
-
-        //}
-          
+            desiredHeight = windowHeight;
+            aspectRatio = this.originalWidth / this.originalHeight;
+            desiredWidth = desiredHeight * aspectRatio;
+            canvas.width = desiredWidth;
+            this.width = desiredWidth
+            this.height = desiredHeight
+            canvas.height = desiredHeight;
+            scaleX = (desiredWidth / this.originalWidth);
+            scaleY = (desiredHeight / this.originalHeight);
+            ctx.setTransform(scaleY * this.game.camera.zoom, 0, 0, scaleX * this.game.camera.zoom, 0, 0)        
         }
     }
 
@@ -349,6 +332,8 @@ export class GameDisplayer {
                 "rgb(255,155,50)"
             )
         }
+
+
 
     }
 

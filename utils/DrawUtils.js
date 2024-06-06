@@ -72,7 +72,7 @@ export class DrawUtils {
 
     }
 
-    Line(x1, y1, x2, y2, color, width = 20, outline = true, oColor = "black", weight = 5, drawTime = ctx) {
+    Line(x1, y1, x2, y2, color, width = 20, outline = true, oColor = "black", weight = 5, drawTime = ctx, cap = "round") {
         if(outline) {
             drawTime.beginPath();
             drawTime.moveTo(x1, y1);
