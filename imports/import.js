@@ -18,6 +18,7 @@ import { Spawn } from "../system/map-player/map/mapCarryers/enemySpawn.js"
 import { Held } from "../system/map-player/player/heldItems/holdManager.js"
 import { Bazooka } from "../system/map-player/player/heldItems/Bazooka.js"
 import { Shotgun } from "../system/map-player/player/heldItems/Shotgun.js"
+import { Dash } from "../system/map-player/player/heldItems/dash.js"
 
 export class Game{
     // System
@@ -28,12 +29,12 @@ export class Game{
     // fields
     
     shotgun = new Shotgun(this)
+    dash = new Dash(this)
     keyManager = new KeyManager(this);
     debug = new Debug(this.keyManager, this);
     menu = new Menu(this)
     drawUtils = new DrawUtils()
     storage = new Storage(this)
-    
     camera = new Camera(850, 600, this.debug, this.keyManager, this)
     mapEdit= new Edit(this.camera, this.keyManager, this.drawUtils, this)
     keys = new Keys(this.camera, this)
@@ -43,8 +44,6 @@ export class Game{
     bazooka = new Bazooka(this)
     main 
     enemy
-    
-    
     
     constructor(tld) {
         this.player = new Player(-438, -509, 

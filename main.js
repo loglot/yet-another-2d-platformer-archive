@@ -120,6 +120,7 @@ document.getElementsByTagName("body")[0].style.cursor = "none";
         game.hookII.update(deltaTime);
         game.bazooka.update()
         game.shotgun.update()
+        game.dash.update()
         game.storage.update()
         DeltaTime()
         

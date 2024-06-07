@@ -166,6 +166,12 @@ export class GameDisplayer {
         this.drawUtils.Rect(200, 50, 21.14 * width, 50, "rgb(255, 255, 255)", uictx)
 
         uictx.globalAlpha = 1
+
+        if(this.game.held.selected == 4){
+            this.drawUtils.Circle(2514 / 2, 150, 40, "#000", uictx)
+            this.drawUtils.Circle(2514 / 2, 150, 30, "rgb(45, 45, 45)", uictx)
+            if(this.game.dash.enabled){this.drawUtils.Circle(2514 / 2, 150, 30, "#FFF", uictx)}
+        }
     }
 
     signDraw() {

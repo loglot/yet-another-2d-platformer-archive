@@ -270,9 +270,9 @@ export class Player {
         if (this.game.hook.enabled == true || this.game.hookII.enabled == true) {
             this.velX = this.velX * this.hookFriction
         } else if (this.jump == 5) {
+            this.game.held.grounded()
             if(check == true){
                 this.velX = this.velX * this.friction
-                
             } else{
                 this.velX = this.velX * this.stopFriction
             }
