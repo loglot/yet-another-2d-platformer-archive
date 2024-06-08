@@ -84,7 +84,9 @@ export class Held {
         if(this.game.player.shotgunHeld){
             this.heldItems[3] = true
         }
-        this.heldItems[4] = true
+        if(this.game.player.dashHeld){
+            this.heldItems[4] = true
+        }
     }
 
     execute(){

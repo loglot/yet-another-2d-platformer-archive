@@ -45,10 +45,12 @@ export class Shotgun{
             this.game.player.friction = .95; this.game.player.stopFriction = .92; this.game.player.airFriction = .97
             this.game.player.velChange = 1
             this.game.player.maxVelX = 1000; this.game.player.maxVelY = 500;
+            this.game.player.wallJumpVelX = 60 / 2
             await this.game.sleep(1000)    
             this.game.player.maxVelX = 100; this.game.player.maxVelY = 50;
             this.game.player.friction = .8; this.game.player.stopFriction = .5; this.game.player.airFriction = .85;
             this.game.player.velChange = 4
+            this.game.player.wallJumpVelX = 60
 
 
         }

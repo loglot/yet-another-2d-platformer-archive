@@ -26,10 +26,11 @@ export class Player {
     stuck = false; death = false; hidden = false;
     playerHitbox = new Array();
 
-    hookHeld = false; hookHeldII = false; bazookaHeld = false; shotgunHeld = false
+    hookHeld = false; hookHeldII = false; bazookaHeld = false; shotgunHeld = false; dashHeld = false
     change
     orb = new Array(); anim = false; animFrames = 0; orbAlpha = 1
     mousevis = false
+    loops = 50
 
     constructor(x, y, keyManager, debug, map, camera, DM, CPM, TPM, extra) {
         this.keyManager = keyManager;
@@ -152,6 +153,18 @@ export class Player {
             this.game.held.makeImg()
         }
 
+        if(this.orbAlpha <= 0 && this.anim == true && this.dashHeld == false && this.change == "dash") {
+            this.dashHeld = true
+            this.game.gameDisplayer.targetR = 255
+            this.game.gameDisplayer.targetG = 199
+            this.game.gameDisplayer.targetB = 199
+            this.game.gameDisplayer.gradMinTarget = 700
+            this.game.gameDisplayer.gradMaxTarget = 2000
+            this.anim = false
+            this.game.held.selected = 4
+            this.game.held.makeImg()
+        }
+
 
         
     }
@@ -225,8 +238,7 @@ export class Player {
         }
 
         if (this.keyManager.isKeyPressed("KeyW") || this.keyManager.isKeyPressed("Space")) {
-            this.velY += this.float
-            this.velY += this.float
+            this.velY += this.float * 2
                 if (this.velY <= 0 && this.jump > 0) {
                     this.velY += this.jumpVel;     
                 } else if (this.keyManager.wasKeyJustPressed("KeyW") || this.keyManager.wasKeyJustPressed("Space")) {
@@ -257,8 +269,8 @@ export class Player {
                         this.wallJumpAmmountRight += .5
                         this.wallJumpAmmountLeft = 1
                     }
+                    this.jump = 0
                 }
-            this.jump = 0
 
         }
 
@@ -296,6 +308,7 @@ export class Player {
     }
 
     #move() {
+        
         this.x += this.velX //* this.game.main.deltaTime;
         this.y += this.velY ;
         this.jump--
@@ -368,6 +381,18 @@ export class Player {
                 this.game.audio.powerUpSound()
                 await this.sleep(750)
                 this.change = "shotgun"
+                this.mousevis = true
+                document.getElementsByTagName("body")[0].style.cursor = "url('http://wiki-devel.sugarlabs.org/images/e/e2/Arrow.cur'), auto";
+            }
+        }
+        if(valC == "dash") {
+            if(this.anim == false && this.dashHeld != true){
+                this.orbAlpha = 1
+                this.anim = true
+                await this.sleep(750)
+                this.game.audio.powerUpSound()
+                await this.sleep(750)
+                this.change = "dash"
                 this.mousevis = true
                 document.getElementsByTagName("body")[0].style.cursor = "url('http://wiki-devel.sugarlabs.org/images/e/e2/Arrow.cur'), auto";
             }

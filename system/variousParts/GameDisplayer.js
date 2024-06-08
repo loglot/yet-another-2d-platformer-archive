@@ -168,9 +168,9 @@ export class GameDisplayer {
         uictx.globalAlpha = 1
 
         if(this.game.held.selected == 4){
-            this.drawUtils.Circle(2514 / 2, 150, 40, "#000", uictx)
-            this.drawUtils.Circle(2514 / 2, 150, 30, "rgb(45, 45, 45)", uictx)
-            if(this.game.dash.enabled){this.drawUtils.Circle(2514 / 2, 150, 30, "#FFF", uictx)}
+            this.drawUtils.Circle(2514 / 2, 250, 40, "#000", uictx)
+            this.drawUtils.Circle(2514 / 2, 250, 30, "rgb(45, 45, 45)", uictx)
+            if(this.game.dash.enabled){this.drawUtils.Circle(2514 / 2, 250, 30, "#FFF", uictx)}
         }
     }
 
@@ -381,6 +381,12 @@ export class GameDisplayer {
             } else{
                 this.drawUtils.Bean(-this.player.x + this.camera.x, -this.player.y + this.camera.y, 50 + (this.player.avgVelY/2), 100 - this.player.avgVelY, "#afbfaf") 
             }
+
+            for(let i = 0; i < this.game.dash.animation.length; i++){
+                ctx.globalAlpha = Math.min(1, Math.max(0, this.game.dash.animation[i].alpha))
+                this.drawUtils.Line(-this.game.dash.animation[i].x + this.camera.x, -this.game.dash.animation[i].y + this.camera.y - 50,-this.game.dash.animation[i].x + this.camera.x, -this.game.dash.animation[i].y + this.camera.y+25,"#ffffff",50, true, "#33363f", 10 )
+            }
+            ctx.globalAlpha = 1
         }
  
     }
