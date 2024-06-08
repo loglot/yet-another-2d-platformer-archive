@@ -21,7 +21,7 @@ export class Dash {
             for(let i=0; i < 5; i++) {
                 this.animation[i] = new Object()        
             }
-            this.game.audio.dash()
+            this.game.audio.dashSound()
 
 
             this.animate()
@@ -63,9 +63,9 @@ export class Dash {
 
     }
     reset(){
-        if(this.cooldown <= 0){
+        if(this.cooldown <= 0 && !this.enabled){
             this.enabled = true
-            this.game.audio.dashReload()
+            this.game.audio.dashReloadSound()
         }
     }
 }

@@ -32,13 +32,13 @@ export class Sound{
         hbreak.play()
     }
 
-    dashSound(v=.4) {
+    dashSound(v=.1) {
         var hbreak = new Audio('https://raw.githubusercontent.com/loglot/yet-another-2d-platformer/main/assets/audio/Dash.wav')
         hbreak.volume = v
         hbreak.play()
     }
 
-    dashReloadSound(v=.4) {
+    dashReloadSound(v=.2) {
         var hbreak = new Audio('https://raw.githubusercontent.com/loglot/yet-another-2d-platformer/main/assets/audio/DashReload.wav')
         hbreak.volume = v
         hbreak.play()
