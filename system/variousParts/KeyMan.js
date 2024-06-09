@@ -40,6 +40,7 @@ export class KeyManager {
       document.addEventListener("mousedown", (event) => {
         if (event.button == 0) {
           this.game.held.execute()
+          console.log("test")
         }
       }, false);
 

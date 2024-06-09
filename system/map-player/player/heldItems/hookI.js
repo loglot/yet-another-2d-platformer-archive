@@ -8,6 +8,7 @@ export class Hook{
     trajectory = new Object() ; speed = 80 ; threshold = 5 ; motion
     slope
     hitNum
+    breakage
     fixed = false
     yTopCompare = 0 ; xLeftCompare = 0 ; yBottomCompare = 0 ; xRightCompare = 0
 
@@ -132,10 +133,17 @@ export class Hook{
 
             for (let i = 0; i < this.game.map.ground.hitboxes.length; i++){
                 if(this.#collisionCheck(this.game.map.ground, i)){
-                    this.enabled = true
-                    this.motion = false
-                    this.fixPos(this.game.map.ground, i)
-                    this.game.audio.hookHitSound()    
+                    if(!this.game.map.ground.hitboxes[i].extraInfoI){
+                        this.enabled = true
+                        this.motion = false
+                        this.fixPos(this.game.map.ground, i)
+                        this.game.audio.hookHitSound()  
+                    } else{
+                        this.visibility = false
+                        this.enabled = false
+                        this.motion = false
+                        this.game.audio.breakSound()
+                    }
                 }
             }
 
@@ -151,8 +159,6 @@ export class Hook{
                         this.motion = false
                         this.fixPos(this.game.map.lava, i)
                         this.game.audio.hookHitSound()
-                         
-                         
                     }
                 }
             }

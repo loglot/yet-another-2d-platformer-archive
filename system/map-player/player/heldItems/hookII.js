@@ -130,13 +130,18 @@ export class Hook{
 
             for (let i = 0; i < this.game.map.ground.hitboxes.length; i++){
                     if(this.#collisionCheck(this.game.map.ground, i)){
-                        this.enabled = true
-                       this.motion = false
-
-                        if (!this.fixed) {
+                        if(!this.game.map.ground.hitboxes[i].extraInfoI){
+                            this.enabled = true
+                            this.motion = false
                             this.fixPos(this.game.map.ground, i)
                             this.game.audio.hookHitSound()
-                        
+                             
+                             
+                        } else{
+                            this.visibility = false
+                            this.enabled = false
+                            this.motion = false
+                            this.game.audio.breakSound()
                         }
                     }
             }

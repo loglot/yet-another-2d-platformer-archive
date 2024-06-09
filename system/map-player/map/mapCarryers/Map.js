@@ -17,7 +17,7 @@ export class Map {
 
   //this.hitboxes[24] = new Hitbox(1451.1362846604356,-2156.2176276689797,208,262.00046251742333,false )
 
-        this.hitboxes[0] = new Hitbox(-1010, 561, 3496, 1550, false);
+        this.hitboxes[0] = new Hitbox(-1010, 561, 3496, 1550);
         this.hitboxes[1] = new Hitbox(-2452,-3521,2564,5660 )
         this.hitboxes[2] = new Hitbox(-101,-1800,2239,1985 )
         this.hitboxes[3] = new Hitbox(3244,562,2582,1485 )
@@ -142,6 +142,29 @@ export class Map {
         this.hitboxes[this.hitboxes.length] = new Hitbox(7378,-9489,142,108 )
         this.hitboxes[this.hitboxes.length] = new Hitbox(4054,-11594,1651,3434 )
         this.hitboxes[this.hitboxes.length] = new Hitbox(5605,-10839,488,144 )
+
+        this.hitboxes[this.hitboxes.length] = new Hitbox(6419,-12552,668,1011 )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(4116,-12552,2971,482 )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(4117,-13385,2975,1090 )
+        
+        
+        this.hitboxes[this.hitboxes.length] = new Hitbox(2770,-11594,1292,307, false, true )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(2774,-12361,1360,291, false, true )
+
+ 
+        this.hitboxes[this.hitboxes.length] = new Hitbox(18346,-9851,112,94 )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(16346,-9851,1345,87 )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(16116,-10643,1325,894 )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(16979,-11477,3013,979 )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(16102,-11476,936,960 )
+
+ 
+        this.hitboxes[this.hitboxes.length] = new Hitbox(2602,-11421,1561,1293 )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(1932,-11594,905,1710 )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(2678,-13399,1479,1209 )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(1946,-13246,916,1178 )
+        
+        
         
 
         this.stairs(11865,-2135,746,4, 200, 1)
@@ -170,12 +193,12 @@ export class Map {
 
     }
     nDraw(camera, color = "#0f0f0f") {
-        
         for (let i = 0; i < this.hitboxes.length; i++) {
+            if(this.hitboxes[i].extraInfoI) {
+                color = "#1f1f1f"
+            }
             this.hitboxes[i].nDraw(camera, color);
+            color = "#0f0f0f"
         }
-
     }
-
-
 }

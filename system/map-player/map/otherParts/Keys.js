@@ -27,6 +27,8 @@ export class Keys {
     bazookaEnabled = new Image();
     shotgunEnabled = new Image();
     shotgunDisabled = new Image();
+    dashEnabled = new Image();
+    dashDisabled = new Image();
     leftClick = new Image()
     rightClick = new Image()
 
@@ -49,7 +51,10 @@ export class Keys {
         this.shotgunEnabled.src = 'assets/images/shotgunEnabled.png';
         this.pickaxeDisabled.src = 'assets/images/pickaxeDisabled.png';
         this.pickaxeEnabled.src = 'assets/images/pickaxeEnabled.png';
+        this.dashDisabled.src = 'assets/images/dashDisabled.png';
+        this.dashEnabled.src = 'assets/images/dashEnabled.png';
         this.game = root
+
     }
     drawKeys() {
 
@@ -68,9 +73,10 @@ export class Keys {
             
         }
     }
+
     
  
-
+    
     jump(x, y) {
         ctx.drawImage(this.keyW, x + this.camera.x, y + this.camera.y)
         ctx.drawImage(this.keySpace, x + this.camera.x, (y + 50) + this.camera.y)
@@ -103,13 +109,14 @@ export class Keys {
         }
     }
 
-    drawMisc(){
+    drawMisc(){//3301 -11555
         this.drawImage(this.keyD, 388, 600)
         this.drawImage(this.warnLava, 5976, -1211)
         this.drawImage(this.warnLava, 5976, -811)
         this.drawImage(this.warnLava, 5976, -1611)
 
-        
+            this.drawImage(this.hookDisabled, 4161,-11545, 100, 100)
+ 
         this.drawImage(this.keyW, 17395,-4977)
         this.drawImage(this.keyS, 17395,-4877)
     }

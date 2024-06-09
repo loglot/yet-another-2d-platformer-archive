@@ -51,16 +51,22 @@ export class Held {
     }
 
     makeImg(){
-        if(this.selected == 0){
-            this.image = this.game.keys.hookEnabled
-        }else if(this.selected==1){
-            this.image = this.game.keys.pickaxeEnabled
-        }else if(this.selected==2){
-            this.image = this.game.keys.bazookaEnabled
-        }else if(this.selected==3){
-            this.image = this.game.keys.shotgunEnabled
-        }else if(this.selected==4){
-            this.image = this.game.keys.warnLava
+        switch(this.selected) {
+            case 0: 
+            this.image = this.game.keys.hookEnabled;
+            break;
+            case 1: 
+            this.image = this.game.keys.pickaxeEnabled;
+            break;
+            case 2: 
+            this.image = this.game.keys.bazookaEnabled;
+            break;
+            case 3: 
+            this.image = this.game.keys.shotgunEnabled;
+            break;
+            case 4: 
+            this.image = this.game.keys.dashEnabled;
+            break;
         }
         this.imageA = 5
         this.game.audio.cycleSound(.3)
@@ -72,6 +78,7 @@ export class Held {
         this.heldItems[2] = false
         this.heldItems[3] = false
         this.heldItems[4] = false
+        
         if(this.game.player.hookHeld){
             this.heldItems[0] = true
         }
@@ -90,16 +97,23 @@ export class Held {
     }
 
     execute(){
-        if(this.selected == 0){
-            this.hook()
-        }else if(this.selected == 1){
-            this.pickaxe()
-        }else if(this.selected == 2){
-            this.bazooka()
-        }else if(this.selected == 3){
-            this.shotgun()
-        }else if(this.selected == 4){
-            this.dash()//
+        switch(this.selected) {
+            case 0:
+                this.hook()
+                break
+            case 1:
+                this.pickaxe()
+                break
+            case 2:
+                this.bazooka()
+                break
+            case 3:
+                this.shotgun()
+                break
+            case 4:
+                this.dash()
+                break
+            case 5:
         }
     }
 
@@ -117,15 +131,16 @@ export class Held {
     }
 
     hook(){
-        this.game.hook.visibility = true
-        this.game.hook.enabled = false
-        this.game.hook.motion = true
-        this.game.hook.mouseUpdate()
-        if (this.game.hook.visibility) {
-          this.game.audio.hookSound()
-        } else {
-          this.game.audio.breakSound()
-        }
+
+            this.game.hook.visibility = true
+            this.game.hook.enabled = false
+            this.game.hook.motion = true
+            this.game.hook.mouseUpdate()
+            if (this.game.hook.visibility) {
+              this.game.audio.hookSound()
+            } else {
+              this.game.audio.breakSound()
+            }
     }
 
     pickaxe(){
