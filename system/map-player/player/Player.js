@@ -209,6 +209,8 @@ export class Player {
         this.y += this.velY ;
         this.velX = this.velX * .8
         this.velY = this.velY * .8
+        this.game.camera.targetX = this.x
+        this.game.camera.targetY = this.y
     }
 
     #updateVelocity() {
@@ -312,6 +314,8 @@ export class Player {
         this.x += this.velX //* this.game.main.deltaTime;
         this.y += this.velY ;
         this.jump--
+        this.game.camera.targetX = this.x
+        this.game.camera.targetY = this.y
         this.#colide()
         //console.log(this.x, this.y)
     }
@@ -582,6 +586,16 @@ export class Player {
         for (let i = 0; i < this.map.lava.hitboxes.length; i++) {
             if(this.#collisionCheck(100, i, this.map.lava) && !this.death) {
                 this.die()
+            }
+        }
+
+        for (let i = 0; i < this.game.trigger.hitboxes.length; i++) {
+            if(this.#collisionCheck(100, i, this.game.trigger)) {
+                console.log(i)
+                if(this.game.trigger.hitboxes[i].extraInfoI == "camera"){
+                    this.game.camera.targetX = this.game.trigger.hitboxes[i].extraInfoII
+                    this.game.camera.targetY = this.game.trigger.hitboxes[i].extraInfoIII    
+                }
             }
         }
 

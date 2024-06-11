@@ -122,6 +122,7 @@ export class Debug {
                     this.noClip = true
                     this.bean = false
                     this.enum = true
+                    document.getElementsByTagName("body")[0].style.cursor = "url('http://wiki-devel.sugarlabs.org/images/e/e2/Arrow.cur'), auto";
                 } else {
                     this.grappleHookTest = true
                     this.noClip = false

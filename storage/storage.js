@@ -23,6 +23,8 @@ export class Storage{
             hook : this.game.player.hookHeld,
             hookII : this.game.player.hookHeldII,
             bazooka : this.game.player.bazookaHeld,
+            shotgun : this.game.player.shotgunHeld,
+            dash : this.game.player.dashHeld,
             rC : this.game.gameDisplayer.targetR,
             gC : this.game.gameDisplayer.targetG,
             bC : this.game.gameDisplayer.targetB,
@@ -69,11 +71,14 @@ export class Storage{
             this.Data.gC+ "\n"+
             this.Data.bC+ "\n"+
             Math.floor(this.Data.rx)+ "\n"+
-            Math.floor(this.Data.ry)+ "\n"+
+            Math.floor(this.Data.ry)+ "\n"+  
             this.Data.targetMinRad+ "\n"+
             this.Data.targetMaxRad+ "\n"+
-            this.Data.bazooka+ "\n"
+            this.Data.bazooka+ "\n"+
+            this.Data.shotgun+ "\n"+
+            this.Data.dash+ "\n"
         )
+        console.log(this.Data.dash, this.Data.shotgun)
         console.log("save") 
     }
 
@@ -89,7 +94,9 @@ export class Storage{
         this.game.player.y = Math.floor(Number(useData[1]))
         this.game.player.hookHeld = (useData[2] === "true\r" || useData[2] === "true")
         this.game.player.hookHeldII = (useData[3] === "true\r" || useData[3] === "true")
-        this.game.player.bazookaHeld = (useData[11] === "true\r" || useData[3] === "true")
+        this.game.player.bazookaHeld = (useData[11] === "true\r" || useData[11] === "true")
+        this.game.player.shotgunHeld = (useData[12] === "true\r" || useData[12] === "true")
+        this.game.player.dashHeld = (useData[13] === "true\r" || useData[13] === "true")
         this.game.gameDisplayer.targetR = Number(useData[4])
         this.game.gameDisplayer.targetG = Number(useData[5])
         this.game.gameDisplayer.targetB = Number(useData[6])
@@ -102,44 +109,3 @@ export class Storage{
     }
 }
 
-
--10320.137153439802
-1599.4288089210595
-true
-true
-216
-199
-167
--11433.140395945758
-2432
-700
-2000
-
-
--4832.970817753494
--512
-true
-true
-216
-199
-167
--5224.941717325869
--350.5466810912339
-700
-2000
-
--4852
--512
-true
-true
-167
-199
-216
--5311
--351
-300
-1500
-
-undefined
-
-false

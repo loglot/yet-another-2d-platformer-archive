@@ -413,6 +413,28 @@ export class Background {
         this.layer1[380] = new Hitbox(8246,-3239,623,71 )
         this.layer1[381] = new Hitbox(6885,-3771,62,497 )
         this.layer1[382] = new Hitbox(6631,-3322,309,48 )
+        this.layer1[383] = new Hitbox(4251,-4789,87,819 )
+        this.layer1[384] = new Hitbox(3327,-4789,1011,93 )
+        this.layer1[385] = new Hitbox(3327,-5755,61,1059 )
+        this.layer1[386] = new Hitbox(1657,-5755,1731,79 )
+        this.layer1[387] = new Hitbox(3527,-4728,93,491 )
+        this.layer1[388] = new Hitbox(1797,-4328,1823,91 )
+        this.layer1[389] = new Hitbox(3367,-5503,1381,87 )
+        this.layer1[390] = new Hitbox(2718,-5703,83,397 )
+        this.layer1[391] = new Hitbox(1078,-5376,1677,71 )
+        this.layer1[392] = new Hitbox(1664,-6401,81,703 )
+        this.layer1[393] = new Hitbox(1078,-5766,61,412 )
+        this.layer1[394] = new Hitbox(96,-5766,990,51 )
+        this.layer1[395] = new Hitbox(96,-6561,73,846 )
+        this.layer1[396] = new Hitbox(1574,-5341,63,1243 )
+        this.layer1[397] = new Hitbox(515,-5736,59,310 )
+        this.layer1[398] = new Hitbox(-811,-5489,1334,63 )
+        this.layer1[399] = new Hitbox(857,-6140,71,383 )
+        this.layer1[400] = new Hitbox(857,-6140,235,75 )
+        this.layer1[401] = new Hitbox(1017,-6681,75,612 )
+        this.layer1[402] = new Hitbox(4289,-4565,957,73 )
+        this.layer1[403] = new Hitbox(5175,-5521,71,1026 )
+        
     }
 
     createLayer2() {
@@ -673,6 +695,21 @@ export class Background {
         this.layer2[254] = new Hitbox(3406,-2814,57,138 )
         this.layer2[255] = new Hitbox(3207,-2724,256,48 )
         this.layer2[256] = new Hitbox(3207,-3650,64,941 )
+        this.layer2[257] = new Hitbox(2229,-3647,1024,55 )
+        this.layer2[258] = new Hitbox(2231,-3918,77,322 )
+        this.layer2[259] = new Hitbox(432,-3913,1858,63 )
+        this.layer2[260] = new Hitbox(596,-3865,83,593 )
+        this.layer2[261] = new Hitbox(-210,-3341,889,68 )
+        this.layer2[262] = new Hitbox(663,-3430,756,79 )
+        this.layer2[263] = new Hitbox(1338,-3689,75,324 )
+        this.layer2[264] = new Hitbox(1338,-3689,284,79 )
+        this.layer2[265] = new Hitbox(1555,-3627,67,742 )
+        this.layer2[266] = new Hitbox(2416,-3603,75,551 )
+        this.layer2[267] = new Hitbox(2069,-3131,422,79 )
+        this.layer2[268] = new Hitbox(2073,-3114,81,423 )
+        this.layer2[269] = new Hitbox(1373,-2768,752,77 )
+        this.layer2[270] = new Hitbox(429,-4863,85,998 )
+        
     }
 
     createlayer0() {

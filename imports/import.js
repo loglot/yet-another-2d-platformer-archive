@@ -10,6 +10,7 @@ import { Menu } from "../system/variousParts/menu/Menu.js"
 import { Keys } from "../system/map-player/map/otherParts/Keys.js"
 import { DrawUtils } from "../utils/DrawUtils.js"
 import { Background } from "../system/map-player/map/mapCarryers/Background.js"
+import { Trigger } from "../system/map-player/map/mapCarryers/Triggers.js"
 import { Hook } from "../system/map-player/player/heldItems/hookI.js"
 import { Hook as HookII } from "../system/map-player/player/heldItems/hookII.js"
 import { Storage } from "../storage/storage.js"
@@ -42,6 +43,7 @@ export class Game{
     audio = new Audio(this)
     held = new Held(this)
     bazooka = new Bazooka(this)
+    trigger = new Trigger(this)
     main 
     enemy
     

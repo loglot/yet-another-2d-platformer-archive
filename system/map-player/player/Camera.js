@@ -23,6 +23,10 @@ export class Camera {
     omidY = this.midY
     originalCanvas = canvas.getBoundingClientRect()
     zoom = 1
+
+    targetX = 0
+    targetY = 0
+
     game
 
 
@@ -89,8 +93,8 @@ export class Camera {
             this.velX = (((this.x - this.midX) - (this.game.player.x+this.mouseX))  /5) // 
             this.velY = (((this.y - this.midY) - (this.game.player.y+this.mouseY))  /5) //
         } else {
-            this.velX = (((this.x - this.midX) - (this.game.player.x))  /5) //
-            this.velY = (((this.y - this.midY) - (this.game.player.y))  /5) //
+            this.velX = (((this.x - this.midX) - (this.targetX))  /5) //
+            this.velY = (((this.y - this.midY) - (this.targetY))  /5) //
         }
 
     }
