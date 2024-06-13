@@ -20,7 +20,8 @@ export class Trigger {
         this.hitboxes[this.hitboxes.length] = new Hitbox(11070,-3330,2271,1257, true, "camera", -12288, 2689)
         this.hitboxes[this.hitboxes.length] = new Hitbox(-2842,-13422,2303,1223, true, "camera", 1528, 12711)
 
-
+        this.hitboxes[this.hitboxes.length] = new Hitbox(-9438,-17193,2095,1222,true, "camera",8362, 16539)
+ 
 
 
 
