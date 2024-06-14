@@ -93,12 +93,15 @@ export class GameDisplayer {
         }
 
         for(let i = 0; i < this.game.shotgun.particles.length; i++) {
+            ctx.globalAlpha = Math.max(0, Math.min(1,this.game.shotgun.particles[i].alpha)) 
+            console.log(this.game.shotgun.particles[i].alpha)
             this.drawUtils.Circle(
                 -this.game.shotgun.particles[i].x + this.camera.x,
                 -this.game.shotgun.particles[i].y + this.camera.y,
                 5,
                 "rgb(0,0,0)"
             )
+            ctx.globalAlpha = 1
         }
         
         this.map.teleport.nDraw(this.camera)

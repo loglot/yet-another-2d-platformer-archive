@@ -12,6 +12,8 @@ export class Keys {
     camera;
     keyD = new Image();
     keyW = new Image();
+    keyQ = new Image();
+    keyE = new Image();
     keySpace = new Image();
     keyShift = new Image();
     keyS = new Image();
@@ -36,6 +38,8 @@ export class Keys {
         this.camera = cam
         this.keyD.src = 'assets/images/keys/D_Key_Dark.png';
         this.keyW.src = 'assets/images/keys/W_Key_Dark.png';
+        this.keyQ.src = 'assets/images/keys/Q_Key_Dark.png';
+        this.keyE.src = 'assets/images/keys/E_Key_Dark.png';
         this.keyS.src = 'assets/images/keys/S_Key_Dark.png';
         this.keyL.src = 'assets/images/keys/L_Key_Dark.png'; //
         this.leftClick.src = 'assets/images/keys/Mouse_Left_Key_Dark.png';
@@ -67,7 +71,13 @@ export class Keys {
             this.jump(8824,-14,83,78 )
 
             this.hookTip(14308,-2763, "left")
+            this.hookTip(-6033,-16668,"right")
+ 
             this.hookState(12162 + this.camera.x,-2256 + this.camera.y)
+            this.hookState(-4292+ this.camera.x + 40,-18644 + this.camera.y + 40 )
+ 
+
+            this.pickaxeState(-8417 + this.camera.x,-16145 + this.camera.y)
             
  
             
@@ -89,8 +99,8 @@ export class Keys {
         }
         
         if(type == "right") {
-            ctx.drawImage(this.rightClick, x + this.camera.x+100, y + this.camera.y)
-            this.pickaxeState(x + this.camera.x, y + this.camera.y)
+            ctx.drawImage(this.leftClick, x + this.camera.x, y + this.camera.y)
+            this.pickaxeState(x + this.camera.x+100, y + this.camera.y)
         }
     }
     hookState(x, y) {
@@ -116,6 +126,13 @@ export class Keys {
         this.drawImage(this.warnLava, 5976, -1611)
 
             this.drawImage(this.hookDisabled, 4161,-11545, 100, 100)
+
+            this.drawImage(this.keyQ,-4313,-18498)
+            this.drawImage(this.keyE,-4213,-18498)
+ 
+
+            
+ 
  
         this.drawImage(this.keyW, 17395,-4977)
         this.drawImage(this.keyS, 17395,-4877)

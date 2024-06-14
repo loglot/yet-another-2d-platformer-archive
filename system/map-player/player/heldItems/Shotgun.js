@@ -30,6 +30,7 @@ export class Shotgun{
                 this.particles[this.length].y = this.game.player.y
                 this.particles[this.length].velX = (this.trajectory.x*30 + (Math.random() - .5) * 5)
                 this.particles[this.length].velY = (this.trajectory.y*30 + (Math.random() - .5) * 5)
+                this.particles[this.length].alpha = 2
                 this.length++
                 if(this.length > 50){
                     this.length = 0
@@ -77,7 +78,10 @@ export class Shotgun{
             for(let h = 0; h < this.steps; h++){
                 this.particles[i].x -= (this.particles[i].velX * this.velMultiplyer) / this.steps
                 this.particles[i].y -= (this.particles[i].velY * this.velMultiplyer) / this.steps
-                this.colideAll(this.game.map.ground, i)
+                if(this.particles[i].alpha > 0){
+                    this.colideAll(this.game.map.ground, i)
+                }
+                this.particles[i].alpha -= 0.0001
             }
         }
         if(this.velMultiplyer > 0){
