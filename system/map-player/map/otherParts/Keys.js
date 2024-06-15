@@ -10,6 +10,7 @@ const ctx = canvas.getContext("2d");
 
 export class Keys {
     camera;
+    door = new Image();
     keyD = new Image();
     keyW = new Image();
     keyQ = new Image();
@@ -36,6 +37,7 @@ export class Keys {
 
     constructor(cam, root){
         this.camera = cam
+        this.door.src = 'assets/images/door.png';
         this.keyD.src = 'assets/images/keys/D_Key_Dark.png';
         this.keyW.src = 'assets/images/keys/W_Key_Dark.png';
         this.keyQ.src = 'assets/images/keys/Q_Key_Dark.png';
@@ -130,8 +132,10 @@ export class Keys {
             this.drawImage(this.keyQ,-4313,-18498)
             this.drawImage(this.keyE,-4213,-18498)
  
+            this.drawImage(this.door,7030,-20273, 200, 200)
 
             
+ 
  
  
         this.drawImage(this.keyW, 17395,-4977)

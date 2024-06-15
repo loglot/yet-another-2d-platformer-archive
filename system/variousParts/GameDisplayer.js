@@ -125,10 +125,10 @@ export class GameDisplayer {
 
         this.PostGrad()
 
-        if(this.signDisplayPos == 800){} else {
+        //if(this.signDisplayPos == 800){} else {
 
             this.signDraw()
-        }
+        //}
 
         var alpha = Math.min(1, Math.max(0, this.game.held.imageA))
         ctx.globalAlpha = alpha;

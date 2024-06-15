@@ -221,6 +221,12 @@ export class Map {
         this.hitboxes[this.hitboxes.length] = new Hitbox(-1944,-18713,217,131 )
         this.hitboxes[this.hitboxes.length] = new Hitbox(2272,-18926,344,146 )
         this.hitboxes[this.hitboxes.length] = new Hitbox(1429,-18565,511,127 )
+
+        
+        this.hitboxes[this.hitboxes.length] = new Hitbox(6938,-21146,374,861, false, true, "A", 0,-21146 -861 )
+
+        this.hitboxes[this.hitboxes.length] = new Hitbox(5595,-22461,2425,1358 )
+
         this.hitboxes[this.hitboxes.length] = new Hitbox(2879,-18566,435,127 )
         this.hitboxes[this.hitboxes.length] = new Hitbox(128,-22180,1479,1626 )
         this.hitboxes[this.hitboxes.length] = new Hitbox(1575,-22561,2373,1563 )
@@ -233,21 +239,28 @@ export class Map {
         this.hitboxes[this.hitboxes.length] = new Hitbox(4045,-18586,452,129 )
         this.hitboxes[this.hitboxes.length] = new Hitbox(5955,-18594,443,129 )
         this.hitboxes[this.hitboxes.length] = new Hitbox(5213,-19242,268,127 )
- 
 
         this.hitboxes[this.hitboxes.length] = new Hitbox(-12434,-18559,165,3572, false, true ) 
         this.hitboxes[this.hitboxes.length] = new Hitbox(-13137,-18555,165,3927, false, true )
 
+        this.hitboxes[this.hitboxes.length] = new Hitbox(6988,-13351,1525,1888 )
+ 
+        this.hitboxes[this.hitboxes.length] = new Hitbox(7770,-20333,2195,1258 )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(8584,-21893,1758,2466 )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(6396,-23290,3929,935 )
+        
+
         this.stairs(11865,-2135,746,4, 200, 1)
         this.stairs(-9728+1000,-16007,746,4,200, 1)
 
-        768,716
+        this.hitboxes[this.hitboxes.length] = new Hitbox(5103,-2214,285,515 ) // blocking secret paths 
+        this.hitboxes[this.hitboxes.length] = new Hitbox(19224,-10601,322,753 )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(13388,-8371,1441,365 )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(-13480,-18584,1620,353 )
 
 
-        this.hitboxes[this.hitboxes.length] = new Hitbox(7164,-11676,178,130 )
-        this.hitboxes[this.hitboxes.length] = new Hitbox(7417,-11678,174,114 )
-        this.hitboxes[this.hitboxes.length] = new Hitbox(7585,-12083,135,218 )
-        this.hitboxes[this.hitboxes.length] = new Hitbox(7882,-12712,270,106 )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(7918,-21610,716,160 ) // blocking main path
+        
  
         
     }

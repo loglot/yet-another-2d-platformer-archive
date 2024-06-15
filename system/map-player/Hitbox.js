@@ -15,7 +15,7 @@ export class Hitbox {
     extraInfoIII
     extraInfoIIII
 
-    constructor(x = 0, y = 0, width = 0, height = 0, hidden = false, extraInfoI = 0, extraInfoII = 0, extraInfoIII = 1, extraInfoIIII = 1){
+    constructor(x = 0, y = 0, width = 0, height = 0, hidden = false, extraInfoI = false, extraInfoII = "undefined", extraInfoIII = 0, extraInfoIIII = 0){
         this.x = x;
         this.y = y;
         this.width = width;

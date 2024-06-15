@@ -31,6 +31,7 @@ export class Player {
     orb = new Array(); anim = false; animFrames = 0; orbAlpha = 1
     mousevis = false
     loops = 50
+    doors = new Object()
 
     constructor(x, y, keyManager, debug, map, camera, DM, CPM, TPM, extra) {
         this.keyManager = keyManager;
@@ -45,6 +46,9 @@ export class Player {
         this.respawnY = y
         this.respawnVelY = 0
         this.game = extra
+        this.doors.index = new Array()
+        this.doors.i = 0
+        this.doors.temp = new Object()
     }
 
     #buildHitbox(x, y, width, height) {
@@ -595,6 +599,48 @@ export class Player {
                 if(this.game.trigger.hitboxes[i].extraInfoI == "camera"){
                     this.game.camera.targetX = this.game.trigger.hitboxes[i].extraInfoII
                     this.game.camera.targetY = this.game.trigger.hitboxes[i].extraInfoIII    
+                }
+                if(this.game.trigger.hitboxes[i].extraInfoI == "door"){
+                    for(let h = 0; h < this.game.map.ground.hitboxes.length; h++){
+                        //console.log()
+                        if(this.map.ground.hitboxes[h].extraInfoII == this.game.trigger.hitboxes[i].extraInfoII){
+                            var check = true
+                            for(let j = 0; j < this.doors.i; j++){
+                                if(this.doors.index[j] == this.map.ground.hitboxes[h].extraInfoII) {
+                                    check = false
+                                }
+                            }
+                            if(check){
+                                this.doors.index[this.doors.i] = this.map.ground.hitboxes[h].extraInfoII
+                                this.doors.i++
+                                eval("this.doors."+this.map.ground.hitboxes[h].extraInfoII+" = new Object()")
+                                eval("this.doors."+this.map.ground.hitboxes[h].extraInfoII+".velY = -5")
+                                eval("this.doors."+this.map.ground.hitboxes[h].extraInfoII+".index = h")
+                                eval("this.doors."+this.map.ground.hitboxes[h].extraInfoII+".oY = this.map.ground.hitboxes[h].y")
+                                eval("this.doors."+this.map.ground.hitboxes[h].extraInfoII+".height = this.map.ground.hitboxes[h].height")
+                                //this.doors.A = new Object()
+                                //this.doors.A.velY = -5
+                                //this.doors.A.index = h
+                                //this.map.ground.hitboxes[h].y -= 1
+                            }
+                        }
+                    }
+                }
+            }
+
+            
+            for(let i = 0; i < this.doors.i; i++){
+                var id = this.doors.index[i]
+                eval("this.doors.temp.velY = this.doors."+id+".velY")
+                var velY = this.doors.temp.velY
+                eval("this.doors.temp.index = this.doors."+id+".index")
+                var index = this.doors.temp.index
+                eval("this.doors.temp.y = this.doors."+id+".oY")
+                var y = this.doors.temp.y
+                eval("this.doors.temp.height = this.doors."+id+".height")
+                var height = this.doors.temp.height
+                if(this.map.ground.hitboxes[index].y > y - height){
+                    this.map.ground.hitboxes[index].y += velY
                 }
             }
         }
