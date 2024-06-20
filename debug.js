@@ -37,6 +37,7 @@ export class Debug {
             this.flipC()
             this.flipGP()
             this.flipL()
+            this.teleportationRoom()
             if(this.keyManager.isKeyPressed("ShiftLeft")){
                 this.flipMouse()
                 this.flipFPS()
@@ -131,6 +132,14 @@ export class Debug {
                 }
             }
         }
+    }
+
+    teleportationRoom(){
+        if (this.keyManager.wasKeyJustPressed("KeyT")) {
+            this.game.player.x = 15812
+            this.game.player.y = -5161
+        }
+
     }
 
     flipBackGrid() {

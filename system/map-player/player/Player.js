@@ -614,7 +614,7 @@ export class Player {
                                 this.doors.index[this.doors.i] = this.map.ground.hitboxes[h].extraInfoII
                                 this.doors.i++
                                 eval("this.doors."+this.map.ground.hitboxes[h].extraInfoII+" = new Object()")
-                                eval("this.doors."+this.map.ground.hitboxes[h].extraInfoII+".velY = -5")
+                                eval("this.doors."+this.map.ground.hitboxes[h].extraInfoII+".velY = this.map.ground.hitboxes[h].extraInfoIIII")
                                 eval("this.doors."+this.map.ground.hitboxes[h].extraInfoII+".index = h")
                                 eval("this.doors."+this.map.ground.hitboxes[h].extraInfoII+".oY = this.map.ground.hitboxes[h].y")
                                 eval("this.doors."+this.map.ground.hitboxes[h].extraInfoII+".height = this.map.ground.hitboxes[h].height")

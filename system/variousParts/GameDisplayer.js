@@ -114,6 +114,7 @@ export class GameDisplayer {
         this.map.door.nDraw(this.camera);
         this.map.lava.nDraw(this.camera);
         this.map.checkpoint.nDraw(this.camera) 
+        this.map.enabler.nDraw(this.camera);
         this.map.ground.nDraw(this.camera);
         this.drawText()
 
