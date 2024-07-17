@@ -133,9 +133,10 @@ export class Keys {
             this.drawImage(this.keyE,-4213,-18498)
  
             this.drawImage(this.door,7030,-20273, 200, 200)
-            this.drawImage(this.door,11888+50,-21774, 200, 200)
+            this.drawImage(this.door,11888+50,-21774, 200, 200) // 11357,-26575
 
             this.drawImage(this.door,14175 - 40,-14777,200,200)
+            this.drawImage(this.door,11357 + 40,-26575 + 70,200,200)
             // this.hitboxes[this.hitboxes.length] = new Hitbox(,8,130 )
  
  
