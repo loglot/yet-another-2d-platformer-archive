@@ -111,7 +111,6 @@ export class GameDisplayer {
         }
         this.drawTheBeanPeople()
 
-        this.map.door.nDraw(this.camera);
         this.map.lava.nDraw(this.camera);
         this.map.checkpoint.nDraw(this.camera) 
         this.map.enabler.nDraw(this.camera);
@@ -192,8 +191,8 @@ export class GameDisplayer {
                 this.signTextPos = ((this.signDisplayPos * 12) + 800 )/ 13
             }
         }
-        this.drawUtils.Rect(0, 675 + this.signDisplayPos, 10000, 10000, "#33363f", uictx)
-        this.drawUtils.Rect(0, 700 + this.signDisplayPos, 10000, 10000, "#d8d8d8", uictx)
+        this.drawUtils.Rect(0, 675 + this.signDisplayPos, 2514, 1377 - 675, "#33363f", uictx)
+        this.drawUtils.Rect(0, 700 + this.signDisplayPos, 2514, 1377 - 700, "#d8d8d8", uictx)
         for(let j = 0; j < 6; j++){
             this.drawUtils.Text(this.signText[j], 100, (800 + (100 * j)) + this.signTextPos *(j/2 + 1),"#73767f", "#33363f", uictx)
         }

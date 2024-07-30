@@ -25,6 +25,18 @@ export class Trigger {
         this.hitboxes[this.hitboxes.length] = new Hitbox(6499,-21181,473,897, true, "door", "A", true )
         this.hitboxes[this.hitboxes.length] = new Hitbox(14105,-14842,270,326, true, "door", "B", true )
         this.hitboxes[this.hitboxes.length] = new Hitbox(11357,-26575,270,326, false, "door", "C", true )
+
+        this.hitboxes[this.hitboxes.length] = new Hitbox(21088,-32178,238,285, false, "door", "D", true )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(29147,-32868,151,294, false, "door", "E", true )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(30097,-25700,311,157, false, "door", "F", true )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(29449,-33820,160,285, false, "door", "G", true )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(32863,-31295,181,321, false, "door", "H", true )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(31596,-26090,396,183, false, "door", "I", true )
+
+
+        
+        this.hitboxes[this.hitboxes.length] = new Hitbox(26428,-27213,226,213, false, "door", "FINAL", true )
+ 
  
  
  
