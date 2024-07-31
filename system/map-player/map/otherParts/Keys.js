@@ -66,20 +66,10 @@ export class Keys {
 
         if(this.game.debug.shortsMap) {} else {
             this.drawMisc()
-            this.hookTip(5347,-621, "left")
-            this.jump(2273, 642)
-            this.jump(5377,645)
-            this.jump(8089,-522)
-            this.jump(8824,-14,83,78 )
-
-            this.hookTip(14308,-2763, "left")
-            this.hookTip(-6033,-16668,"right")
- 
-            this.hookState(12162 + this.camera.x,-2256 + this.camera.y)
-            this.hookState(-4292+ this.camera.x + 40,-18644 + this.camera.y + 40 )
- 
-
-            this.pickaxeState(-8417 + this.camera.x,-16145 + this.camera.y)
+            //this.hookTip(5347,-621, "left")
+            //this.hookTip(-6033,-16668,"right")
+            //this.jump(2273, 642)
+            //this.hookState(12162 + this.camera.x,-2256 + this.camera.y)
             
  
             
@@ -123,29 +113,6 @@ export class Keys {
 
     drawMisc(){//3301 -11555
         this.drawImage(this.keyD, 388, 600)
-        this.drawImage(this.warnLava, 5976, -1211)
-        this.drawImage(this.warnLava, 5976, -811)
-        this.drawImage(this.warnLava, 5976, -1611)
-
-            this.drawImage(this.hookDisabled, 4161,-11545, 100, 100)
-
-            this.drawImage(this.keyQ,-4313,-18498)
-            this.drawImage(this.keyE,-4213,-18498)
- 
-            this.drawImage(this.door,7030,-20273, 200, 200)
-            this.drawImage(this.door,11888+50,-21774, 200, 200) // 11357,-26575
-            this.drawImage(this.door,20865-50,-32125, 200, 200)
-
-            this.drawImage(this.door,14175 - 40,-14777,200,200)
-            this.drawImage(this.door,11357 + 40,-26575 + 70,200,200)
-            // this.hitboxes[this.hitboxes.length] = new Hitbox(,8,130 )
- 
- 
- 
- 
- 
-        this.drawImage(this.keyW, 17395,-4977)
-        this.drawImage(this.keyS, 17395,-4877)
     }
 
     drawImage(img, x, y, width, height) {
