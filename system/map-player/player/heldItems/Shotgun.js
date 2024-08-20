@@ -9,6 +9,8 @@ export class Shotgun{
     particles = []
     steps = 50
     length = 0
+    frame = 0
+    colideTime = 1
     constructor(game){
         this.game = game
     }
@@ -31,6 +33,7 @@ export class Shotgun{
                 this.particles[this.length].velX = (this.trajectory.x*30 + (Math.random() - .5) * 5)
                 this.particles[this.length].velY = (this.trajectory.y*30 + (Math.random() - .5) * 5)
                 this.particles[this.length].alpha = 2
+                this.particles[this.length].frame = 2
                 this.length++
                 if(this.length > 50){
                     this.length = 0
@@ -74,16 +77,24 @@ export class Shotgun{
                 this.reloading = false
             }
         }
-        for(let i = 0; i < this.particles.length; i++){
-            for(let h = 0; h < this.steps; h++){
-                this.particles[i].x -= (this.particles[i].velX * this.velMultiplyer) / this.steps
-                this.particles[i].y -= (this.particles[i].velY * this.velMultiplyer) / this.steps
-                if(this.particles[i].alpha > 0){
-                    this.colideAll(this.game.map.ground, i)
-                }
-                this.particles[i].alpha -= 0.0001
+
+        
+            for(let i = 0; i < this.particles.length; i++){
+                this.particles[i].frame++
+                //for(let h = 0; h < this.steps; h++){
+                    this.particles[i].x -= (this.particles[i].velX * this.velMultiplyer) // this.steps
+                    this.particles[i].y -= (this.particles[i].velY * this.velMultiplyer) // this.steps
+                    //if(this.particles[i].alpha > 0 && this.particles[i].frame > 15){
+                        this.colideAll(this.game.map.ground, i)
+                        this.particles[i].frame = 0
+                    //}
+                        this.particles[i].alpha -= 0.0001
+                     
+                    
+                //}
             }
-        }
+        
+        
         if(this.velMultiplyer > 0){
             this.velMultiplyer /= 1 + (this.velMultiplyer/15)
         }
