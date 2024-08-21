@@ -20,6 +20,7 @@ import { Held } from "../system/map-player/player/heldItems/holdManager.js"
 import { Bazooka } from "../system/map-player/player/heldItems/Bazooka.js"
 import { Shotgun } from "../system/map-player/player/heldItems/Shotgun.js"
 import { Dash } from "../system/map-player/player/heldItems/dash.js"
+import { UiUtills } from "../system/variousParts/UIUtills.js"
 
 export class Game{
     // System
@@ -28,7 +29,7 @@ export class Game{
     enemy;
 
     // fields
-    
+    uitills = new UiUtills(this)
     shotgun = new Shotgun(this)
     dash = new Dash(this)
     keyManager = new KeyManager(this);

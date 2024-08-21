@@ -76,6 +76,7 @@ export class GameDisplayer {
         this.resizeCanvasForWindowSize(ballEffect, bctx);
         this.resizeCanvasForWindowSize(postEffect, ppctx);
         
+        
         this.bgFade(this.targetR, this.targetG, this.targetB)
         this.r += this.rC
         this.g += this.gC
@@ -91,6 +92,8 @@ export class GameDisplayer {
             //ctx.drawImage(this.grid, 0, 0, 1676,1047)
             ctx.drawImage(this.grid, 0, 0, this.originalWidth,625 * (this.originalWidth / 1000))
         }
+
+        //this.game.uitills.draw()
 
         for(let i = 0; i < this.game.shotgun.particles.length; i++) {
             ctx.globalAlpha = Math.max(0, Math.min(1,this.game.shotgun.particles[i].alpha)) 
