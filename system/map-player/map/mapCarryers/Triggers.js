@@ -33,7 +33,8 @@ export class Trigger {
         this.hitboxes[this.hitboxes.length] = new Hitbox(32863,-31295,181,321, false, "door", "H", true )
         this.hitboxes[this.hitboxes.length] = new Hitbox(31596,-26090,396,183, false, "door", "I", true )
 
-
+        this.hitboxes[this.hitboxes.length] = new Hitbox(2309,6577,517,572, false, "door", "fastpass", true  )
+ 
  
         this.hitboxes[this.hitboxes.length] = new Hitbox(13777,-2611,349,526, false, "toast", ["     you can save ","     and load with","","CTRL C and CTRL V"], 300, "save" )
         this.hitboxes[this.hitboxes.length] = new Hitbox(0,0,0,0, false, "toast", ["","","",""], 100 )

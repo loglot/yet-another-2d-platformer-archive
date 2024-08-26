@@ -17,6 +17,9 @@ export class Map {
 
   //this.hitboxes[24] = new Hitbox(1451.1362846604356,-2156.2176276689797,208,262.00046251742333,false )
 
+  
+        this.hitboxes[this.hitboxes.length] = new Hitbox(60,94,140,492, false, true, "fastpass", 0,-1  )
+
         this.hitboxes[this.hitboxes.length] = new Hitbox(-1010, 561, 3496, 1550);
         this.hitboxes[this.hitboxes.length] = new Hitbox(-2452,-3521,2564,5660 )
         this.hitboxes[this.hitboxes.length] = new Hitbox(-101,-1800,2239,1985 )
