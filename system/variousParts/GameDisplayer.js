@@ -93,7 +93,6 @@ export class GameDisplayer {
             ctx.drawImage(this.grid, 0, 0, this.originalWidth,625 * (this.originalWidth / 1000))
         }
 
-        //this.game.uitills.draw()
 
         for(let i = 0; i < this.game.shotgun.particles.length; i++) {
             ctx.globalAlpha = Math.max(0, Math.min(1,this.game.shotgun.particles[i].alpha)) 
@@ -178,6 +177,9 @@ export class GameDisplayer {
             this.drawUtils.Circle(2514 / 2, 250, 30, "rgb(45, 45, 45)", uictx)
             if(this.game.dash.enabled){this.drawUtils.Circle(2514 / 2, 250, 30, "#FFF", uictx)}
         }
+
+
+        this.game.uitills.draw()
     }
 
     signDraw() {

@@ -23,6 +23,8 @@ export class Player {
     debug; extra; camera; keyManager;
     map;
 
+    toastIdList = []
+
     stuck = false; death = false; hidden = false;
     playerHitbox = new Array();
 
@@ -599,6 +601,18 @@ export class Player {
                 if(this.game.trigger.hitboxes[i].extraInfoI == "camera"){
                     this.game.camera.targetX = this.game.trigger.hitboxes[i].extraInfoII
                     this.game.camera.targetY = this.game.trigger.hitboxes[i].extraInfoIII    
+                }
+                if(this.game.trigger.hitboxes[i].extraInfoI == "toast"){
+                    var check = true
+                    for(let j = 0; j < this.toastIdList.length; j++){
+                        if(this.game.trigger.hitboxes[i].extraInfoIIII == this.toastIdList[j]){
+                            check = false
+                        }
+                    }
+                    if(check){
+                        this.game.uitills.toast(this.game.trigger.hitboxes[i].extraInfoII, this.game.trigger.hitboxes[i].extraInfoIII)
+                        this.toastIdList.push(this.game.trigger.hitboxes[i].extraInfoIIII)
+                    }
                 }
                 if(this.game.trigger.hitboxes[i].extraInfoI == "door"){
                     for(let h = 0; h < this.game.map.ground.hitboxes.length; h++){

@@ -39,6 +39,7 @@ export class Storage{
 
     async update() {
         if(this.game.keyManager.isKeyPressed("ControlLeft")){
+            
             if(this.game.keyManager.wasKeyJustPressed("KeyC")){
                 this.saveAlpha = 0
                 this.loadAlpha = 0

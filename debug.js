@@ -55,6 +55,11 @@ export class Debug {
         if(this.keyManager.wasKeyJustPressed("KeyM")){
             console.log("mute")
             this.mute = !this.mute
+            if(this.mute==true){
+                this.game.uitills.toast(["        Muted!","","press M to unmute",""])
+            } else{
+                this.game.uitills.toast(["        Unmuted!","","press M to mute",""])
+            }
         } 
     }
 
