@@ -3,6 +3,9 @@ export class Sound{
     game = 0
     song = new Audio('https://raw.githubusercontent.com/loglot/yet-another-2d-platformer/main/assets/audio/break.wav')
 
+    time = 100
+    targetTime = 0
+
     constructor(gmae){
         this.game = gmae
     }
@@ -125,15 +128,16 @@ export class Sound{
 
 
         while(true){
+            this.time = Date.now()
+            if(this.time>this.targetTime){
                 var songNum = Math.floor(Math.random() * 10) + 1
                 this.song = new Audio(`https://raw.githubusercontent.com/loglot/yet-another-2d-platformer/main/assets/audio/music/song${songNum}.WAV`)
                 this.song.volume = v
                 await this.sleep(2000)
                 this.song.play()
-            
-                await this.sleep(this.songLength[songNum - 1])
-            
-            
+                this.targetTime = Date.now() + this.songLength[songNum - 1]
+            }
+            await this.sleep(60)
         }
     }
 
