@@ -19,6 +19,8 @@ export class Trigger {
         this.hitboxes[this.hitboxes.length] = new Hitbox(-201,-12780,2192,1274,true, "camera",-938,12139)
         this.hitboxes[this.hitboxes.length] = new Hitbox(11070,-3330,2271,1257, true, "camera", -12288, 2689)
         this.hitboxes[this.hitboxes.length] = new Hitbox(-2842,-13422,2303,1223, true, "camera", 1528, 12711)
+        this.hitboxes[this.hitboxes.length] = new Hitbox(-14575,-3471,1684,981, true, "camera",13812, 2889 )
+ 
 
         this.hitboxes[this.hitboxes.length] = new Hitbox(-9438,-17193,2095,1222,true, "camera",8362, 16539)
 
@@ -33,7 +35,8 @@ export class Trigger {
         this.hitboxes[this.hitboxes.length] = new Hitbox(32863,-31295,181,321, false, "door", "H", true )
         this.hitboxes[this.hitboxes.length] = new Hitbox(31596,-26090,396,183, false, "door", "I", true )
 
-        this.hitboxes[this.hitboxes.length] = new Hitbox(2309,6577,517,572, false, "door", "fastpass", true  )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(2309,6577,517,572, false, "door", "fastpass", true)
+        this.hitboxes[this.hitboxes.length] = new Hitbox(-13971,-2732,294,41, false, "door", "backtracksecret", true)
  
  
         this.hitboxes[this.hitboxes.length] = new Hitbox(13777,-2611,349,526, false, "toast", ["     you can save ","     and load with","","CTRL C and CTRL V"], 300, "save" )

@@ -34,6 +34,8 @@ export class Keys {
     dashDisabled = new Image();
     leftClick = new Image()
     rightClick = new Image()
+    Enabled = new Map()
+    Disabled = new Map()
 
     constructor(cam, root){
         this.camera = cam
@@ -50,15 +52,32 @@ export class Keys {
         this.warnLava.src = 'assets/images/warn.png';
         this.warnGrey.src = 'assets/images/warnGrey.png';
         this.redFlag.src = 'assets/images/redFlag.png';
-        this.hookDisabled.src = 'assets/images/hookDisabled.png';
-        this.hookEnabled.src = 'assets/images/hookEnabled.png';
-        this.bazookaDisabled.src = 'assets/images/bazookaDisabled.png';
-        this.bazookaEnabled.src = 'assets/images/bazookaEnabled.png';
-        this.shotgunEnabled.src = 'assets/images/shotgunEnabled.png';
-        this.pickaxeDisabled.src = 'assets/images/pickaxeDisabled.png';
-        this.pickaxeEnabled.src = 'assets/images/pickaxeEnabled.png';
-        this.dashDisabled.src = 'assets/images/dashDisabled.png';
-        this.dashEnabled.src = 'assets/images/dashEnabled.png';
+
+        this.Disabled.set("hook",new Image());
+        this.Disabled.get("hook").src = 'assets/images/hookDisabled.png'
+        this.Enabled.set("hook",new Image());
+        this.Enabled.get("hook").src = 'assets/images/hookEnabled.png'
+
+        this.Disabled.set("pickaxe",new Image());
+        this.Disabled.get("pickaxe").src = 'assets/images/pickaxeDisabled.png'
+        this.Enabled.set("pickaxe",new Image());
+        this.Enabled.get("pickaxe").src = 'assets/images/pickaxeEnabled.png'
+
+        this.Disabled.set("bazooka",new Image());
+        this.Disabled.get("bazooka").src = 'assets/images/bazookaDisabled.png'
+        this.Enabled.set("bazooka",new Image());
+        this.Enabled.get("bazooka").src = 'assets/images/bazookaEnabled.png'
+
+        this.Disabled.set("shotgun",new Image());
+        this.Disabled.get("shotgun").src = 'assets/images/shotgunDisabled.png'
+        this.Enabled.set("shotgun",new Image());
+        this.Enabled.get("shotgun").src = 'assets/images/shotgunEnabled.png'
+
+        this.Disabled.set("dash",new Image());
+        this.Disabled.get("dash").src = 'assets/images/dashDisabled.png'
+        this.Enabled.set("dash",new Image());
+        this.Enabled.get("dash").src = 'assets/images/dashEnabled.png'
+
         this.game = root
 
     }
@@ -75,11 +94,18 @@ export class Keys {
             this.hookTip(14308,-2763, "left")
             this.hookTip(-6033,-16668,"right")
  
-            this.hookState(12162 + this.camera.x,-2256 + this.camera.y)
-            this.hookState(-4292+ this.camera.x + 40,-18644 + this.camera.y + 40 )
+            this.State(12162 + this.camera.x,-2256 + this.camera.y, "hook")
+            this.State(-4292+ this.camera.x + 40,-18644 + this.camera.y + 40, "hook" )
  
 
-            this.pickaxeState(-8417 + this.camera.x,-16145 + this.camera.y)
+            this.State(-8417 + this.camera.x,-16145 + this.camera.y, "pickaxe")
+            this.State(-13875 + this.camera.x,-2638 + this.camera.y, "dash")
+            this.State(-6928 + this.camera.x,-9097 + this.camera.y, "dash")
+ 
+
+            
+            //-13915,-2638
+            
             
  
             
@@ -97,19 +123,21 @@ export class Keys {
     hookTip(x, y, type){
         if(type == "left") {
             ctx.drawImage(this.leftClick, x + this.camera.x, y + this.camera.y)
-            this.hookState(x+100 + this.camera.x, y + this.camera.y)
+            this.State(x+100 + this.camera.x, y + this.camera.y, "hook")
         }
         
         if(type == "right") {
             ctx.drawImage(this.leftClick, x + this.camera.x, y + this.camera.y)
-            this.pickaxeState(x + this.camera.x+100, y + this.camera.y)
+            this.State(x + this.camera.x+100, y + this.camera.y, "pickaxe")
         }
     }
-    hookState(x, y) {
-        if(this.game.player.hookHeld) {
-            ctx.drawImage(this.hookEnabled, x, y, 100, 100)
+    State(x, y, item = "hook") {
+
+
+        if(this.game.player.Held.get(item)) {
+            ctx.drawImage(this.Enabled.get(item), x, y, 100, 100)
         } else {
-            ctx.drawImage(this.hookDisabled, x, y, 100, 100)
+            ctx.drawImage(this.Disabled.get(item), x, y, 100, 100)
         }
     }
 

@@ -28,6 +28,14 @@ export class Player {
     stuck = false; death = false; hidden = false;
     playerHitbox = new Array();
 
+    Held = new Map()
+
+    // this.Held["hook"].collected= false
+    // this.Held["pickaxe"].collected= false
+    // this.Held["bazooka"].collected= false
+    // this.Held["shotgun"].collected= false
+    // this.Held["dash"].collected= false
+
     hookHeld = false; hookHeldII = false; bazookaHeld = false; shotgunHeld = false; dashHeld = false
     change
     orb = new Array(); anim = false; animFrames = 0; orbAlpha = 1
@@ -51,6 +59,11 @@ export class Player {
         this.doors.index = new Array()
         this.doors.i = 0
         this.doors.temp = new Object()
+        this.Held.set("hook",false)
+        this.Held.set("pickaxe",false)
+        this.Held.set("bazooka",false)
+        this.Held.set("shotgun",false)
+        this.Held.set("dash",false)
     }
 
     #buildHitbox(x, y, width, height) {
@@ -111,8 +124,8 @@ export class Player {
             this.orbAlpha -= .01
         }
 
-        if(this.orbAlpha <= 0 && this.anim == true && this.hookHeld == false && this.change == "hook") {
-            this.hookHeld = true
+        if(this.orbAlpha <= 0 && this.anim == true && this.Held.get("hook") == false && this.change == "hook") {
+            this.Held.set("hook",true)
             this.game.gameDisplayer.targetR = 167
             this.game.gameDisplayer.targetG = 199
             this.game.gameDisplayer.targetB = 216
@@ -123,8 +136,8 @@ export class Player {
             this.game.held.makeImg()
         }
         
-        if(this.orbAlpha <= 0 && this.anim == true && this.hookHeldII == false && this.change == "hookII") {
-            this.hookHeldII = true
+        if(this.orbAlpha <= 0 && this.anim == true && this.Held.get("pickaxe") == false && this.change == "hookII") {
+            this.Held.set("pickaxe",true)
             this.game.gameDisplayer.targetR = 216
             this.game.gameDisplayer.targetG = 199
             this.game.gameDisplayer.targetB = 167
@@ -135,8 +148,8 @@ export class Player {
             this.game.held.makeImg()
         }
 
-        if(this.orbAlpha <= 0 && this.anim == true && this.bazookaHeld == false && this.change == "bazooka") {
-            this.bazookaHeld = true
+        if(this.orbAlpha <= 0 && this.anim == true && this.Held.get("bazooka") == false && this.change == "bazooka") {
+            this.Held.set("bazooka",true)
             this.game.gameDisplayer.targetR = 199
             this.game.gameDisplayer.targetG = 216
             this.game.gameDisplayer.targetB = 167
@@ -147,8 +160,8 @@ export class Player {
             this.game.held.makeImg()
         }
 
-        if(this.orbAlpha <= 0 && this.anim == true && this.shotgunHeld == false && this.change == "shotgun") {
-            this.shotgunHeld = true
+        if(this.orbAlpha <= 0 && this.anim == true && this.Held.get("shotgun") == false && this.change == "shotgun") {
+            this.Held.set("shotgun",true)
             this.game.gameDisplayer.targetR = 216
             this.game.gameDisplayer.targetG = 199
             this.game.gameDisplayer.targetB = 216
@@ -159,8 +172,8 @@ export class Player {
             this.game.held.makeImg()
         }
 
-        if(this.orbAlpha <= 0 && this.anim == true && this.dashHeld == false && this.change == "dash") {
-            this.dashHeld = true
+        if(this.orbAlpha <= 0 && this.anim == true && this.Held.get("dash") == false && this.change == "dash") {
+            this.Held.set("dash",true)
             this.game.gameDisplayer.targetR = 255
             this.game.gameDisplayer.targetG = 199
             this.game.gameDisplayer.targetB = 199
@@ -348,7 +361,7 @@ export class Player {
 
     async check(valC, valS) {
         if(valC == "hook") {
-            if(this.anim == false && this.hookHeld != true){
+            if(this.anim == false && this.Held.get("hook") != true){
                 this.orbAlpha = 1
                 this.anim = true
                 await this.sleep(750)
@@ -360,7 +373,7 @@ export class Player {
             }
         }
         if(valC == "hookII") {
-            if(this.anim == false && this.hookHeldII != true){
+            if(this.anim == false && this.Held.get("pickaxe") != true){
                 this.orbAlpha = 1
                 this.anim = true
                 await this.sleep(750)
@@ -372,7 +385,7 @@ export class Player {
             }
         }
         if(valC == "bazooka") {
-            if(this.anim == false && this.bazookaHeld != true){
+            if(this.anim == false && this.Held.get("bazooka") != true){
                 this.orbAlpha = 1
                 this.anim = true
                 await this.sleep(750)
@@ -384,7 +397,7 @@ export class Player {
             }
         }
         if(valC == "shotgun") {
-            if(this.anim == false && this.shotgunHeld != true){
+            if(this.anim == false && this.Held.get("shotgun") != true){
                 this.orbAlpha = 1
                 this.anim = true
                 await this.sleep(750)
@@ -396,7 +409,7 @@ export class Player {
             }
         }
         if(valC == "dash") {
-            if(this.anim == false && this.dashHeld != true){
+            if(this.anim == false && this.Held.get("dash") != true){
                 this.orbAlpha = 1
                 this.anim = true
                 await this.sleep(750)
@@ -408,7 +421,6 @@ export class Player {
             }
         }
 
-        //shotgunHeld
     }
 
     drawHitbox() {

@@ -53,19 +53,19 @@ export class Held {
     makeImg(){
         switch(this.selected) {
             case 0: 
-            this.image = this.game.keys.hookEnabled;
+            this.image = this.game.keys.Enabled.get("hook");
             break;
             case 1: 
-            this.image = this.game.keys.pickaxeEnabled;
+            this.image = this.game.keys.Enabled.get("pickaxe");
             break;
             case 2: 
-            this.image = this.game.keys.bazookaEnabled;
+            this.image = this.game.keys.Enabled.get("bazooka");
             break;
             case 3: 
-            this.image = this.game.keys.shotgunEnabled;
+            this.image = this.game.keys.Enabled.get("shotgun");
             break;
             case 4: 
-            this.image = this.game.keys.dashEnabled;
+            this.image = this.game.keys.Enabled.get("dash");
             break;
         }
         this.imageA = 5
@@ -79,19 +79,19 @@ export class Held {
         this.heldItems[3] = false
         this.heldItems[4] = false
         
-        if(this.game.player.hookHeld){
+        if(this.game.player.Held.get("hook")){
             this.heldItems[0] = true
         }
-        if(this.game.player.hookHeldII){
+        if(this.game.player.Held.get("pickaxe")){
             this.heldItems[1] = true
         }
-        if(this.game.player.bazookaHeld){
+        if(this.game.player.Held.get("bazooka")){
             this.heldItems[2] = true
         }
-        if(this.game.player.shotgunHeld){
+        if(this.game.player.Held.get("shotgun")){
             this.heldItems[3] = true
         }
-        if(this.game.player.dashHeld){
+        if(this.game.player.Held.get("dash")){
             this.heldItems[4] = true
         }
     }
