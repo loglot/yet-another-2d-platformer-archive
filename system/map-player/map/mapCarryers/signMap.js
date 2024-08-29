@@ -13,7 +13,9 @@ export class signMaker {
         //this.signs[3] = new sign(8064,-20334 - 150,["this demo has ended prematurly, there will be more, including", "at least 3 new items", "at least 5 side paths", "and more!", "", "this game is not complete yet"])
         this.signs[3] = new sign(500,-16058 -150,["i just... how???", "well, if you got here, i might aswell tell you", "if you hold Backslash and press N", "you go into noclip", "", "this path is not complete yet"])
         this.signs[4] = new sign(2524,7137 -150,["We have reached the final chalange", "Though, there is a high chance that you haven't gotten everything", "The paths are branching", "And there is a lot to get", "You don't need too much here, but more helps", "Go left to go back to the start"])
-
+        this.signs[5] = new sign(-10213,1825 -150,["Yet", "Another", "Hidden", "Path", "", ""])
+        // this.hitboxes[this.hitboxes.length] = new Hitbox(-10213,1825,123,20 )
+ 
         //this.hitboxes[this.hitboxes.length] = new Hitbox(,102,126 )
         // this.hitboxes[this.hitboxes.length] = new Hitbox(2524,7137,85,28 )
  

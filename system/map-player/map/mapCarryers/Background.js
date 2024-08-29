@@ -1068,7 +1068,8 @@ export class Background {
     }
 
     createlayer0() {
-        
+        this.layer0[0] = new Hitbox(-16368,-6096,405,357 )
+ 
     }
     createLayer3() {
         this.layer3[0] = new Hitbox(1747,1203,832,61 )

@@ -36,6 +36,7 @@ export class Teleport {
         this.hitboxes[this.hitboxes.length] = new Hitbox(1918,6470,217,726, false, -438, -511 )
  
         this.hitboxes[this.hitboxes.length] = new Hitbox(53,138,100,445, false, -2607, -7134 )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(-11813,-4103,200,231, false, 9812, -1765  )
  
  
 
