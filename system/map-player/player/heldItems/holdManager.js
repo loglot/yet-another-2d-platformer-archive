@@ -21,7 +21,7 @@ export class Held {
         while(!this.heldItems[this.selected] && i < 30){
             this.selected++
             i++
-            if(this.selected > 4){
+            if(this.selected > 5){
                 this.selected = 0
             }
         }
@@ -38,7 +38,7 @@ export class Held {
             this.selected--
             i++
             if(this.selected < 0){
-                this.selected = 4
+                this.selected = 5
             }
         }
         if(!this.heldItems[this.selected]){
@@ -67,6 +67,9 @@ export class Held {
             case 4: 
             this.image = this.game.keys.Enabled.get("dash");
             break;
+            case 5: 
+            this.image = this.game.keys.warnLava;
+            break;
         }
         this.imageA = 5
         this.game.audio.cycleSound(.3)
@@ -78,6 +81,7 @@ export class Held {
         this.heldItems[2] = false
         this.heldItems[3] = false
         this.heldItems[4] = false
+        this.heldItems[5] = false
         
         if(this.game.player.Held.get("hook")){
             this.heldItems[0] = true
@@ -93,6 +97,9 @@ export class Held {
         }
         if(this.game.player.Held.get("dash")){
             this.heldItems[4] = true
+        }
+        if(this.game.player.Held.get("portal")){
+            this.heldItems[5] = true
         }
     }
 
@@ -114,6 +121,9 @@ export class Held {
                 this.dash()
                 break
             case 5:
+                this.portal()
+                break
+            case 6:
         }
     }
 
@@ -159,6 +169,10 @@ export class Held {
         this.game.bazooka.summon()
     }
 
+    portal(){
+        this.game.portals.summon()
+    }
+
     hookUp(){
         if(this.game.hook.visibility){
             this.game.hook.visibility = false
@@ -170,7 +184,7 @@ export class Held {
             } else {
               this.game.audio.breakSound()
             }
-          }
+        }
     }
 
     pickaxeUp(){

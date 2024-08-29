@@ -21,6 +21,7 @@ import { Bazooka } from "../system/map-player/player/heldItems/Bazooka.js"
 import { Shotgun } from "../system/map-player/player/heldItems/Shotgun.js"
 import { Dash } from "../system/map-player/player/heldItems/dash.js"
 import { UiUtills } from "../system/variousParts/UIUtills.js"
+import { Portals } from "../system/map-player/player/heldItems/portalMaker.js"
 
 export class Game{
     // System
@@ -45,6 +46,7 @@ export class Game{
     held = new Held(this)
     bazooka = new Bazooka(this)
     trigger = new Trigger(this)
+    portals = new Portals(this)
     main 
     enemy
     

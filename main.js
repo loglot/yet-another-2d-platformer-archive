@@ -20,6 +20,7 @@ document.getElementsByTagName("body")[0].style.cursor = "none";
     async function startGame() {
         if(localStorage) {game.storage.accessible = false} else {game.storage.accessible = true}
         game.storage.check()
+        game.debug.flipMouse()
         requestAnimationFrame(tick);
 
         //game.autoDebug()

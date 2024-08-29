@@ -64,6 +64,7 @@ export class Player {
         this.Held.set("bazooka",false)
         this.Held.set("shotgun",false)
         this.Held.set("dash",false)
+        this.Held.set("portal",false)
     }
 
     #buildHitbox(x, y, width, height) {

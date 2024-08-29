@@ -1,7 +1,7 @@
 export class Portals{
     game
-    x = []
-    y = []
+    x = 0
+    y = 0
     velX = []
     velY = []
     cooldown = 100
@@ -11,16 +11,9 @@ export class Portals{
     speed = 10
     trajectory = new Object()
     playerTraj = new Object()
+    
     constructor(game){
         this.game = game
-        this.x[0] = 0
-        this.x[1] = 0
-        this.y[0] = 0
-        this.y[1] = 0 
-        this.velX[0] = 0
-        this.velX[1] = 0
-        this.velY[0] = 0
-        this.velY[1] = 0 
     }
     summon(){
         if(this.reload < 1){
@@ -40,7 +33,6 @@ export class Portals{
             this.velX = this.trajectory.x
             this.velY = this.trajectory.y
 
-            this.game.audio.bazookaFireSound()
         }
     }
 
@@ -50,7 +42,6 @@ export class Portals{
         this.colideAll(this.game.map.ground)
         this.reload--
         if(this.reload == 0) {
-            this.game.audio.bazookaReloadSound()
             console.log("reload")
         }
     }
@@ -65,8 +56,7 @@ export class Portals{
         if(   this.x > type.hitboxes[i].x && this.x < type.hitboxes[i].x + type.hitboxes[i].width    &&
               this.y > type.hitboxes[i].y && this.y < type.hitboxes[i].y + type.hitboxes[i].height   && 
               this.visibility                                                                        ){
-            this.visibility = false
-            this.explode()
+            
         }
     }
 }
