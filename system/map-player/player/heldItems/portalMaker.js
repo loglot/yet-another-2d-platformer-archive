@@ -4,11 +4,14 @@ export class Portals{
     y = 0
     velX = []
     velY = []
-    cooldown = 100
+    state = 0
+    cooldown = 0
     reload = 0
     enabled = false
     visibility = false
     speed = 10
+    speedSet = 50
+    checks = 50
     trajectory = new Object()
     playerTraj = new Object()
     
@@ -16,32 +19,43 @@ export class Portals{
         this.game = game
     }
     summon(){
-        if(this.reload < 1){
-            this.x = -this.game.player.x
-            this.y = -this.game.player.y
-            this.visibility = true
-
-            const diffX = (this.game.camera.keyMan.mousePos.x + this.game.camera.keyMan.mousePos.cx) + (this.game.player.x - this.game.camera.x);
-            const diffY = (this.game.camera.keyMan.mousePos.y + this.game.camera.keyMan.mousePos.cy) + (this.game.player.y - this.game.camera.y); 
-            const mouseDistance = (diffX ** 2 + diffY ** 2) ** 0.5;
-
-            this.trajectory.x = diffX / mouseDistance;
-            this.trajectory.y = diffY / mouseDistance;
-
-            this.reload = this.cooldown
-
+        if(this.state == 0){
+            if(this.reload < 1){
+                this.x = -this.game.player.x
+                this.y = -this.game.player.y
+                this.visibility = true
+    
+                const diffX = (this.game.camera.keyMan.mousePos.x + this.game.camera.keyMan.mousePos.cx) + (this.game.player.x - this.game.camera.x);
+                const diffY = (this.game.camera.keyMan.mousePos.y + this.game.camera.keyMan.mousePos.cy) + (this.game.player.y - this.game.camera.y); 
+                const mouseDistance = (diffX ** 2 + diffY ** 2) ** 0.5;
+    
+                this.trajectory.x = diffX / mouseDistance;
+                this.trajectory.y = diffY / mouseDistance;
+    
+                this.reload = this.cooldown
+    
+                
             
-        
-            this.velX = this.trajectory.x
-            this.velY = this.trajectory.y
-
+                this.velX = this.trajectory.x - (this.game.player.velX/30)
+                this.velY = this.trajectory.y - (this.game.player.velY/30)
+                this.state = 1
+                this.speed = this.speedSet
+            }
+        } else {
+            this.visibility = false
+            this.game.player.x = -this.x
+            this.game.player.y = -this.y
+            this.state = 0
         }
     }
 
     update(){
-        this.x += this.velX * this.speed
-        this.y += this.velY * this.speed
-        this.colideAll(this.game.map.ground)
+        for(let i = 0; i < this.checks; i++){
+            this.x += (this.velX * this.speed) / this.checks
+            this.y += (this.velY * this.speed) / this.checks
+            this.colideAll(this.game.map.ground)
+        }
+        this.speed /= 1.1
         this.reload--
         if(this.reload == 0) {
             console.log("reload")

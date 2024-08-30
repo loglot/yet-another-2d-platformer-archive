@@ -395,11 +395,14 @@ export class GameDisplayer {
                 this.drawUtils.Line(-this.game.dash.animation[i].x + this.camera.x, -this.game.dash.animation[i].y + this.camera.y - 50,-this.game.dash.animation[i].x + this.camera.x, -this.game.dash.animation[i].y + this.camera.y+25,"#ffffff",50, true, "#33363f", 10 )
             }
 
-            ctx.globalAlpha = .5
-            this.drawUtils.Line(this.game.portals.x + this.camera.x, this.game.portals.y + this.camera.y - 50,this.game.portals.x + this.camera.x, this.game.portals.y + this.camera.y+25,"#ffffff",50, true, "#33363f", 10 )
 
-            ctx.globalAlpha = 1
+
         }
+        ctx.globalAlpha = .5
+        if(this.game.portals.visibility){
+            this.drawUtils.Line(this.game.portals.x + this.camera.x, this.game.portals.y + this.camera.y - 50,this.game.portals.x + this.camera.x, this.game.portals.y + this.camera.y+25,"#ffffff",50, true, "#33363f", 10 )
+        }
+        ctx.globalAlpha = 1
  
     }
 
