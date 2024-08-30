@@ -36,8 +36,8 @@ export class Portals{
     
                 
             
-                this.velX = this.trajectory.x - (this.game.player.velX/30)
-                this.velY = this.trajectory.y - (this.game.player.velY/30)
+                this.velX = this.trajectory.x - (this.game.player.velX/50)
+                this.velY = this.trajectory.y - (this.game.player.velY/50)
                 this.state = 1
                 this.speed = this.speedSet
             }

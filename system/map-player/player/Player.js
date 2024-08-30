@@ -185,6 +185,18 @@ export class Player {
             this.game.held.makeImg()
         }
 
+        if(this.orbAlpha <= 0 && this.anim == true && this.Held.get("portal") == false && this.change == "portal") {
+            this.Held.set("portal",true)
+            this.game.gameDisplayer.targetR = 167
+            this.game.gameDisplayer.targetG = 216
+            this.game.gameDisplayer.targetB = 199
+            this.game.gameDisplayer.gradMinTarget = 700
+            this.game.gameDisplayer.gradMaxTarget = 2000
+            this.anim = false
+            this.game.held.selected = 5
+            this.game.held.makeImg()
+        }
+
 
         
     }
@@ -417,6 +429,18 @@ export class Player {
                 this.game.audio.powerUpSound()
                 await this.sleep(750)
                 this.change = "dash"
+                this.mousevis = true
+                document.getElementsByTagName("body")[0].style.cursor = "url('http://wiki-devel.sugarlabs.org/images/e/e2/Arrow.cur'), auto";
+            }
+        }
+        if(valC == "portal") {
+            if(this.anim == false && this.Held.get("portal") != true){
+                this.orbAlpha = 1
+                this.anim = true
+                await this.sleep(750)
+                this.game.audio.powerUpSound()
+                await this.sleep(750)
+                this.change = "portal"
                 this.mousevis = true
                 document.getElementsByTagName("body")[0].style.cursor = "url('http://wiki-devel.sugarlabs.org/images/e/e2/Arrow.cur'), auto";
             }

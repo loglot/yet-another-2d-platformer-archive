@@ -34,7 +34,7 @@ export class Enabler {
         this.hitboxes[this.hitboxes.length] = new Hitbox(-16390,6058,188,894, false, "bazooka", true )
         this.hitboxes[this.hitboxes.length] = new Hitbox(-16851,6084,214,866, false, "shotgun", true )
         this.hitboxes[this.hitboxes.length] = new Hitbox(-17277,6079,191,807, false, "dash", true )
-        this.hitboxes[this.hitboxes.length] = new Hitbox(-17750,6134,193,744, false, "null", true )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(-17750,6134,193,744, false, "portal", true )
         
         
         
