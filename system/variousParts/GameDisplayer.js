@@ -396,7 +396,7 @@ export class GameDisplayer {
             }
 
             ctx.globalAlpha = .5
-            this.drawUtils.Line(-this.game.portals.x + this.camera.x, -this.game.portals.y + this.camera.y - 50,-this.game.portals.x + this.camera.x, -this.game.portals.y + this.camera.y+25,"#ffffff",50, true, "#33363f", 10 )
+            this.drawUtils.Line(this.game.portals.x + this.camera.x, this.game.portals.y + this.camera.y - 50,this.game.portals.x + this.camera.x, this.game.portals.y + this.camera.y+25,"#ffffff",50, true, "#33363f", 10 )
 
             ctx.globalAlpha = 1
         }

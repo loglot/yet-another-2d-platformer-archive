@@ -25,10 +25,12 @@ export class Portals{
             const diffY = (this.game.camera.keyMan.mousePos.y + this.game.camera.keyMan.mousePos.cy) + (this.game.player.y - this.game.camera.y); 
             const mouseDistance = (diffX ** 2 + diffY ** 2) ** 0.5;
 
-            this.trajectory.x = mouseDistance ? 0 : diffX / mouseDistance;
-            this.trajectory.y = mouseDistance ? 0 : diffY / mouseDistance;
+            this.trajectory.x = diffX / mouseDistance;
+            this.trajectory.y = diffY / mouseDistance;
 
             this.reload = this.cooldown
+
+            
         
             this.velX = this.trajectory.x
             this.velY = this.trajectory.y
@@ -47,16 +49,49 @@ export class Portals{
     }
 
     colideAll(type){
+        console.log(this.x)
         for(let i = 0; i < type.hitboxes.length; i++){
             this.colide(type, i)
         }
     }
 
     colide(type, i){
-        if(   this.x > type.hitboxes[i].x && this.x < type.hitboxes[i].x + type.hitboxes[i].width    &&
-              this.y > type.hitboxes[i].y && this.y < type.hitboxes[i].y + type.hitboxes[i].height   && 
+        if(   this.x + 25 > type.hitboxes[i].x && this.x - 25 < type.hitboxes[i].x + type.hitboxes[i].width    &&
+              this.y+50 > type.hitboxes[i].y && this.y-75 < type.hitboxes[i].y + type.hitboxes[i].height   && 
               this.visibility                                                                        ){
-            
+                var yTopOffset = this.y - type.hitboxes[i].y
+                var yBottomOffset = this.y - (type.hitboxes[i].y + type.hitboxes[i].height)
+                var xLeftOffset = this.x - type.hitboxes[i].x
+                var xRightOffset = this.x - (type.hitboxes[i].x + type.hitboxes[i].width)
+                if(Math.abs(yTopOffset) < Math.abs(yBottomOffset)){
+                    if(Math.abs(xLeftOffset) < Math.abs(xRightOffset)){
+                        if(Math.abs(xLeftOffset) < Math.abs(yTopOffset)){
+                            this.velX = -this.velX
+                        } else {
+                            this.velY = -this.velY
+                        }
+                    } else {
+                        if(Math.abs(xRightOffset) < Math.abs(yTopOffset)){
+                            this.velX = -this.velX
+                        } else {
+                            this.velY = -this.velY
+                        }
+                    }
+                }else{
+                    if(Math.abs(xLeftOffset) < Math.abs(xRightOffset)){
+                        if(Math.abs(xLeftOffset) < Math.abs(yBottomOffset)){
+                            this.velX = -this.velX
+                        } else {
+                            this.velY = -this.velY
+                        }
+                    } else {
+                        if(Math.abs(xRightOffset) < Math.abs(yBottomOffset)){
+                            this.velX = -this.velX
+                        } else {
+                            this.velY = -this.velY
+                        }
+                    }
+                }
         }
     }
 }

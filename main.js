@@ -122,6 +122,7 @@ document.getElementsByTagName("body")[0].style.cursor = "none";
         game.bazooka.update()
         game.shotgun.update()
         game.dash.update()
+        game.portals.update()
         game.storage.update()
         DeltaTime()
         
