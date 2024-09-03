@@ -78,6 +78,11 @@ export class Keys {
         this.Enabled.set("dash",new Image());
         this.Enabled.get("dash").src = 'assets/images/dashEnabled.png'
 
+        this.Disabled.set("portal",new Image());
+        this.Disabled.get("portal").src = 'assets/images/teleportDisabled.png'
+        this.Enabled.set("portal",new Image());
+        this.Enabled.get("portal").src = 'assets/images/teleportEnabled.png'
+
         this.game = root
 
     }

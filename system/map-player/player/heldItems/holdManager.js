@@ -68,7 +68,7 @@ export class Held {
             this.image = this.game.keys.Enabled.get("dash");
             break;
             case 5: 
-            this.image = this.game.keys.warnLava;
+            this.image = this.game.keys.Enabled.get("portal");
             break;
         }
         this.imageA = 5

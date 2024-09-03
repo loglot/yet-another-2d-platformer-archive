@@ -272,6 +272,7 @@ export class Player {
         }
 
         if (this.keyManager.isKeyPressed("KeyW") || this.keyManager.isKeyPressed("Space")) {
+            this.maxVelY = 50
             this.velY += this.float * 2
                 if (this.velY <= 0 && this.jump > 0) {
                     this.velY += this.jumpVel;     
@@ -311,6 +312,10 @@ export class Player {
         if (this.keyManager.isKeyPressed("KeyS")) {
             this.velY -= 2
             this.avgVelY += 4
+            this.maxVelY = 150
+        }
+        if (this.keyManager.isKeyPressed("KeyS") || (this.keyManager.isKeyPressed("KeyW") || this.keyManager.isKeyPressed("Space"))) {} else {
+            this.maxVelY = 100
         }
 
         if (this.game.hook.enabled == true || this.game.hookII.enabled == true) {
