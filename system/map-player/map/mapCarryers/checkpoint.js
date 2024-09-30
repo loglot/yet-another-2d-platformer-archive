@@ -40,6 +40,17 @@ export class Checkpoint {
         this.hitboxes[this.hitboxes.length] = new Hitbox(30794,-26409,162,66 )
         this.hitboxes[this.hitboxes.length] = new Hitbox(23220,-25160,136,79 )
         this.hitboxes[this.hitboxes.length] = new Hitbox(24216,-30621,372,590 )
+
+        this.hitboxes[this.hitboxes.length] = new Hitbox(2926,-3088,471,317 )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(-2264,-8303,363,624 )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(-4925,-9600,320,499 )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(-8848,-2478,377,373 )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(-17056,-4083,779,133 )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(-22314,-3997,400,80 )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(-24707,-7518,188,254 )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(-26837,-8868,385,377 )
+        this.hitboxes[this.hitboxes.length] = new Hitbox(-31583,-11108,290,381 )
+        
         
         
         this.hitboxes[this.hitboxes.length] = new Hitbox(12093,-2354,282,44) // pedistule boyos 
