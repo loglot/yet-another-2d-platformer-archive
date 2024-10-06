@@ -60,15 +60,16 @@ export class DrawUtils {
         
     }
 
-    Text(text, x, y, strokeColor = 'black', fillColor = 'white', drawerForCtxThingieWowICanHaveThisBeLongAndItsFine = ctx) {
-        drawerForCtxThingieWowICanHaveThisBeLongAndItsFine.font = '80px Sans-serif';
-        drawerForCtxThingieWowICanHaveThisBeLongAndItsFine.strokeStyle = strokeColor;
-        drawerForCtxThingieWowICanHaveThisBeLongAndItsFine.lineWidth = 8;
-        drawerForCtxThingieWowICanHaveThisBeLongAndItsFine.lineJoin="miter";
-        drawerForCtxThingieWowICanHaveThisBeLongAndItsFine.miterLimit=2;
-        drawerForCtxThingieWowICanHaveThisBeLongAndItsFine.strokeText(text, x, y);
-        drawerForCtxThingieWowICanHaveThisBeLongAndItsFine.fillStyle = fillColor;
-        drawerForCtxThingieWowICanHaveThisBeLongAndItsFine.fillText(text, x, y);
+    
+    Text(text, x, y, strokeColor = 'black', fillColor = 'white', Ctx = ctx, size = 80) {
+        Ctx.font = `${size}px Sans-serif`;
+        Ctx.strokeStyle = strokeColor;
+        Ctx.lineWidth = 8;
+        Ctx.lineJoin="miter";
+        Ctx.miterLimit=2;
+        Ctx.strokeText(text, x, y);
+        Ctx.fillStyle = fillColor;
+        Ctx.fillText(text, x, y);
 
     }
 

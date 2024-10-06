@@ -83,6 +83,8 @@ export class Game{
     map = new Map(this);
     hook = new Hook(this)
     hookII = new HookII(this)
+
+    state = "menu"
     sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
