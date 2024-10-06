@@ -12,9 +12,11 @@ export class Menu {
     game
     settings = []
     maskX = [-10000,-2000,-10000]
-    maskY = [-700,1500,1500]
+    maskY = [-700,700,1500]
     maskWidth = [100000]
     maskHeight = [100000]
+    settingsY=0
+    settingSelect=0
 
     constructor(game) {
         this.game = game
@@ -27,13 +29,46 @@ export class Menu {
             
             this.state = this.var2[this.var1]
             this.game.menu.subSetId = 0
-            this.game.gameState = "subSettings"
+            this.game.state = "subSettings"
         }, this.game)
     }
 
     drawMenu() {
 
         this.menuScreen()
+        this.optionsScreen()
+        
+        if(this.game.state == "menu"){
+            this.maskY[0] = ((this.maskY[0]*7) -700) / 8
+            this.maskY[1] = ((this.maskY[1]*7)+555) / 8
+            this.maskY[2] = ((this.maskY[2]*7)+1500) / 8
+
+            
+            if(this.game.keyManager.wasKeyJustPressed("KeyW")) {
+                this.game.state = "game"
+            }
+            if(this.game.keyManager.wasKeyJustPressed("KeyS")) {
+                this.game.state = "settings"
+            }
+
+        } else if(this.game.state == "game") {
+            this.maskY[0] = ((this.maskY[0]*7)+0) / 8
+            this.maskY[1] = ((this.maskY[1]*7)+1500) / 8
+            this.maskY[2] = ((this.maskY[2]*7)+1500) / 8
+
+
+            if(this.game.keyManager.wasKeyJustPressed("KeyP")) {
+                this.game.state = "menu"
+            }
+        } else if(this.game.state == "settings") {
+            this.maskY[0] = ((this.maskY[0]*7) -700) / 8
+            this.maskY[1] = ((this.maskY[1]*7)-600) / 8
+            this.maskY[2] = ((this.maskY[2]*7)+1200) / 8
+        } else if(this.game.state == "subSettings") {
+            this.maskY[0] = ((this.maskY[0]*7) -500) / 8
+            this.maskY[1] = ((this.maskY[1]*7)+400) / 8
+            this.maskY[2] = ((this.maskY[2]*7)+250) / 8
+        }
 
         // if(this.pause) {
         //     ctx.fillStyle = `rgba(0, 0, 0, ${this.bgOpacity})`
@@ -80,7 +115,8 @@ export class Menu {
         ctx.save();
         this.menuSetup()
         this.draw.Text("Yet Another 2d Platformer", 200, 200, "black", "white", ctx, 80)
-        this.draw.Text("Press W To Start", 200, 300, "black", "white", ctx, 80)
+        this.draw.Text("Press W To Start", 200, 400, "black", "white", ctx, 80)
+        this.draw.Text("Press S To Edit Settings", 200, 300, "black", "white", ctx, 80)
         ctx.restore();
     }
 
@@ -99,13 +135,13 @@ export class Menu {
     optionsScreen(){
         ctx.save();
         this.optionsSetup()
-        this.drawUtils.Text("=>", -1100, -10, "black", "white", ctx, 120)
-        this.drawUtils.Text("ESC", -1200, -500, "black", "white", ctx, 120)
-        this.settingsY = (this.settingsY*9 + (-100 * this.game.menu.settingSelect))/10
-        for(let i = 0; i < this.game.menu.settings.length; i++){
+        this.draw.Text("=>", 50, 750, "black", "white", ctx, 120)
+        this.draw.Text("ESC", -1200, -500, "black", "white", ctx, 120)
+        this.settingsY = (this.settingsY*9 + (-100 * this.settingSelect))/10
+        for(let i = 0; i < this.settings.length; i++){
 
             var ything = 450 + (100*i) + (this.settingsY)
-            this.drawUtils.Text(this.game.menu.settings[i].title + " : " + this.game.menu.settings[i].state, ((310-i*200)-(this.settingsY*2 ))-1250,(ything + (((ything)-450)*((ything)-450))/40)-470,"black","white",ctx,80 + i*20 +(this.settingsY/5 )-4)
+            this.draw.Text(this.settings[i].title + " : " + this.settings[i].state, ((310-i*200)-(this.settingsY*2 ))+0,(ything + (((ything)-450)*((ything)-450))/40)+280,"black","white",ctx,80 + i*20 +(this.settingsY/5 )-4)
             
         }
         ctx.restore();
@@ -118,7 +154,7 @@ export class Menu {
         ctx.rect(this.maskX[1], this.maskY[1], this.maskWidth[0], this.maskHeight[0])
         ctx.rotate(-60 * Math.PI / 180)
         ctx.clip()
-        this.draw.Rect(-10000,-10000,100000,100000,this.game.menu.settingsColor[this.game.menu.settings[1].var1], ctx) 
+        this.draw.Rect(-10000,-10000,100000,100000,"#2f2f2f", ctx) 
         ctx.closePath()
 
     }
@@ -126,15 +162,15 @@ export class Menu {
     subOptionsScreen(){
         ctx.save();
         this.subOptionsSetup()
-        this.drawUtils.Text("=>", +400, -10, "black", "white", ctx, 120)
-        this.subSetY = (this.subSetY*9 + (-100 * this.game.menu.settings[this.game.menu.subSetId].var1))/10//this.settings[this.subSetId].var1
-        for(let i = 0; i < this.game.menu.settings[this.game.menu.subSetId].var2.length; i++){
+        this.draw.Text("=>", +400, -10, "black", "white", ctx, 120)
+        this.subSetY = (this.subSetY*9 + (-100 * this.settings[this.subSetId].var1))/10//this.settings[this.subSetId].var1
+        for(let i = 0; i < this.settings[this.subSetId].var2.length; i++){
 
             var ything = 450 + (100*i) + (this.subSetY)
-            this.drawUtils.Text(this.game.menu.settings[this.game.menu.subSetId].var2[i], ((310-i*-150)+(this.subSetY*1.5 ))+300,(ything + (((ything)-450)*((ything)-450))/40)-470,"black","white",ctx,80 + i*20 +(this.subSetY/5 )-4)
+            this.draw.Text(this.settings[this.subSetId].var2[i], ((310-i*-150)+(this.subSetY*1.5 ))+300,(ything + (((ything)-450)*((ything)-450))/40)-470,"black","white",ctx,80 + i*20 +(this.subSetY/5 )-4)
             
         }
-        this.drawUtils.Text(this.game.menu.settings[this.game.menu.subSetId].title,700,-600)
+        this.draw.Text(this.settings[this.subSetId].title,700,-600)
         ctx.restore();
     }
 
@@ -145,7 +181,7 @@ export class Menu {
         ctx.rect(this.maskX[2], this.maskY[2], this.maskWidth[0], this.maskHeight[0])
         ctx.rotate(60 * Math.PI / 180)
         ctx.clip()
-        this.drawUtils.Rect(-10000,-10000,100000,100000,this.game.menu.subSetColor[this.game.menu.settings[1].var1], ctx) 
+        this.draw.Rect(-10000,-10000,100000,100000,this.subSetColor[this.settings[1].var1], ctx) 
         ctx.closePath()
 
     }

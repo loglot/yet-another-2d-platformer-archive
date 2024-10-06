@@ -71,7 +71,7 @@ document.getElementsByTagName("body")[0].style.cursor = "none";
             }
             var DrawTime = Date.now() - now
             var now = Date.now()
-            if(game.menu.check) {
+            if(game.state == "game") {
                 updateGame();
                 if(lastFrameMenu){
                     game.audio.menuSound()
@@ -82,12 +82,8 @@ document.getElementsByTagName("body")[0].style.cursor = "none";
                     game.gameDisplayer.targetG = 167
                     game.gameDisplayer.targetB = 167
                 }
-            } else {
-                game.menu.drawMenu()
-                if(game.keyManager.wasKeyJustPressed("KeyW") && !game.menu.checkDos) {
-                    game.menu.fade()
-                }
-            }/**/
+            }
+            game.menu.drawMenu()
             //game.audio.playSound()
             game.keyManager.update();
             //console.log("Drawing :", DrawTime , "|||  Updating :", Date.now() - now, "|||  Max : 16 :", DrawTime + Date.now() - now, "|||  Delta Time :", deltaTime)
@@ -126,10 +122,6 @@ document.getElementsByTagName("body")[0].style.cursor = "none";
         game.storage.update()
         DeltaTime()
         
-
-        if (game.keyManager.wasKeyJustPressed("KeyP") && game.menu.checkDos) {
-            game.menu.fade("up")
-        }
     }
 
     function sleep(ms) {

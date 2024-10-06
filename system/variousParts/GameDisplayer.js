@@ -235,7 +235,7 @@ export class GameDisplayer {
     }
 
     PostGrad() {
-        if(this.game.menu.check){
+        if(this.game.state == "game"){
             //
             this.gradX = ((this.gradX * 12) + (this.player.x + this.camera.mouseX * 1.5)) / 13 // ((this.gradX*12) + this.player.x - 30) / 13
             this.gradY = ((this.gradY * 12) + (this.player.y + this.camera.mouseY * 1.5)) / 13 // ((this.gradY*12) + this.player.y) / 13
