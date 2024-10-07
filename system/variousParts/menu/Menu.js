@@ -17,6 +17,7 @@ export class Menu {
     maskHeight = [100000]
     settingsY=0
     settingSelect=0
+    subSetId = 0
 
     constructor(game) {
         this.game = game
@@ -37,11 +38,12 @@ export class Menu {
 
         this.menuScreen()
         this.optionsScreen()
+        this.subOptionsScreen()
         
         if(this.game.state == "menu"){
             this.maskY[0] = ((this.maskY[0]*7) -700) / 8
             this.maskY[1] = ((this.maskY[1]*7)+555) / 8
-            this.maskY[2] = ((this.maskY[2]*7)+1500) / 8
+            this.maskY[2] = ((this.maskY[2]*7)+3000) / 8
 
             
             if(this.game.keyManager.wasKeyJustPressed("KeyW")) {
@@ -54,7 +56,7 @@ export class Menu {
         } else if(this.game.state == "game") {
             this.maskY[0] = ((this.maskY[0]*7)+0) / 8
             this.maskY[1] = ((this.maskY[1]*7)+1500) / 8
-            this.maskY[2] = ((this.maskY[2]*7)+1500) / 8
+            this.maskY[2] = ((this.maskY[2]*7)+3000) / 8
 
 
             if(this.game.keyManager.wasKeyJustPressed("KeyP")) {
@@ -63,11 +65,32 @@ export class Menu {
         } else if(this.game.state == "settings") {
             this.maskY[0] = ((this.maskY[0]*7) -700) / 8
             this.maskY[1] = ((this.maskY[1]*7)-600) / 8
-            this.maskY[2] = ((this.maskY[2]*7)+1200) / 8
+            this.maskY[2] = ((this.maskY[2]*7)+2500) / 8
+
+
+            if(this.game.keyManager.wasKeyJustPressed("ArrowUp")) {
+                this.settingSelect--
+            }
+            if(this.game.keyManager.wasKeyJustPressed("ArrowDown")) {
+                this.settingSelect++
+            }
+            if(this.game.keyManager.wasKeyJustPressed("Enter")) {
+                this.settings[this.settingSelect].interact()
+                this.game.keyManager.disableJustPressed("Enter")
+            }
+            if(this.game.keyManager.wasKeyJustPressed("Backspace") || this.game.keyManager.wasKeyJustPressed("Escape")) {
+                this.game.state = "menu"
+            }
         } else if(this.game.state == "subSettings") {
             this.maskY[0] = ((this.maskY[0]*7) -500) / 8
-            this.maskY[1] = ((this.maskY[1]*7)+400) / 8
-            this.maskY[2] = ((this.maskY[2]*7)+250) / 8
+            this.maskY[1] = ((this.maskY[1]*7)-300) / 8
+            this.maskY[2] = ((this.maskY[2]*7)+1700) / 8
+            if(this.game.keyManager.wasKeyJustPressed("Escape")) {
+                this.game.state = "menu"
+            }
+            if(this.game.keyManager.wasKeyJustPressed("Enter") || this.game.keyManager.wasKeyJustPressed("Backspace")) {
+                this.game.state = "settings"
+            }
         }
 
         // if(this.pause) {
@@ -181,7 +204,7 @@ export class Menu {
         ctx.rect(this.maskX[2], this.maskY[2], this.maskWidth[0], this.maskHeight[0])
         ctx.rotate(60 * Math.PI / 180)
         ctx.clip()
-        this.draw.Rect(-10000,-10000,100000,100000,this.subSetColor[this.settings[1].var1], ctx) 
+        this.draw.Rect(-10000,-10000,100000,100000,"#3f3f3f", ctx) 
         ctx.closePath()
 
     }

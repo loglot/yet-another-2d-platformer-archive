@@ -105,6 +105,7 @@ export class KeyManager {
         case "Minus": return !this.keysPressedLastFrame[37] && this.keysCurrentlyPressed[37];
         case "ControlLeft": return !this.keysPressedLastFrame[38] && this.keysCurrentlyPressed[38];
         case "ShiftRight": return !this.keysPressedLastFrame[39] && this.keysCurrentlyPressed[39];
+        case "Backspace": return !this.keysPressedLastFrame[40] && this.keysCurrentlyPressed[40];
 
         case "KeyA": return !this.keysPressedLastFrame[0] && this.keysCurrentlyPressed[0];
         case "KeyB": return !this.keysPressedLastFrame[1] && this.keysCurrentlyPressed[1];
@@ -137,6 +138,11 @@ export class KeyManager {
       }
     }
 
+    disableJustPressed(code){
+        this.keysPressedLastFrame[this.returnId(code)] = true
+
+    }
+
     isKeyPressed(code) {
       switch (code) {
         case "Backslash": return this.keysCurrentlyPressed[26];
@@ -153,6 +159,7 @@ export class KeyManager {
         case "Minus": return this.keysCurrentlyPressed[37];
         case "ControlLeft": return this.keysCurrentlyPressed[38];
         case "ShiftRight": return this.keysCurrentlyPressed[39];
+        case "Backspace": return this.keysCurrentlyPressed[40];
 
         case "KeyA": return this.keysCurrentlyPressed[0];
         case "KeyB": return this.keysCurrentlyPressed[1];
@@ -228,6 +235,9 @@ export class KeyManager {
         break;
         case "ShiftRight":
           this.keyBuffer[39] = pressed;
+        break;
+        case "Backspace":
+          this.keyBuffer[40] = pressed;
         break;
 
 
@@ -317,6 +327,56 @@ export class KeyManager {
           console.log("Unexpected key code: " + code);
       }
     }
+
+    returnId(code){
+      switch (code) {
+      case "Backslash": return 26;
+      case "ArrowUp": return 27;
+      case "ArrowDown": return 28;
+      case "ArrowLeft": return 29;
+      case "ArrowRight": return 30;
+      case "AltLeft": return 31;
+      case "ShiftLeft": return 32;
+      case "Space": return 33;//Escape
+      case "Escape": return 34;
+      case "Enter": return 35;
+      case "Equal": return 36;
+      case "Minus": return 37;
+      case "ControlLeft": return 38;
+      case "ShiftRight": return 39;
+      case "Backspace": return 40;
+
+      case "KeyA": return 0;
+      case "KeyB": return 1;
+      case "KeyC": return 2;
+      case "KeyD": return 3;
+      case "KeyE": return 4;
+      case "KeyF": return 5;
+      case "KeyG": return 6;
+      case "KeyH": return 7;
+      case "KeyI": return 8;
+      case "KeyJ": return 9;
+      case "KeyK": return 10;
+      case "KeyL": return 11;
+      case "KeyM": return 12;
+      case "KeyN": return 13;
+      case "KeyO": return 14;
+      case "KeyP": return 15;
+      case "KeyQ": return 16;
+      case "KeyR": return 17;
+      case "KeyS": return 18;
+      case "KeyT": return 19;
+      case "KeyU": return 20;
+      case "KeyV": return 21;
+      case "KeyW": return 22;
+      case "KeyX": return 23;
+      case "KeyY": return 24;
+      case "KeyZ": return 25;
+      default:
+        console.log("Unexpected key Return: " + code);
+
+      }
+  }
 
     update() {
       for (let i = 0; i < this.keyBuffer.length; i++) {
